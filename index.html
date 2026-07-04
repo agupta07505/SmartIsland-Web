@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Smart Island is a lightweight Android overlay that turns notifications, calls, and media playback into a floating glanceable island."
+    />
+    <meta name="theme-color" content="#050608" />
+    <title>Smart Island | Android Dynamic Notification Island</title>
+    <link rel="icon" href="assets/logo-mark.png" />
+    <link rel="preconnect" href="https://github.com" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header" data-header>
+      <a class="brand" href="#top" aria-label="Smart Island home">
+        <img src="assets/logo-mark.png" alt="" />
+        <span>Smart Island</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" data-nav-toggle>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="nav" data-nav>
+        <a href="#features">Features</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#setup">Setup</a>
+        <a href="#docs">Docs</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero section">
+        <div class="hero-copy">
+          <p class="eyebrow">Open-source Android overlay</p>
+          <h1>Smart Island</h1>
+          <p class="hero-text">
+            A lightweight Android app that transforms notifications, calls, and media playback into a floating,
+            glanceable island near the status bar.
+          </p>
+          <div class="hero-actions" aria-label="Primary actions">
+            <a class="button primary" href="https://github.com/agupta07505/SmartIsland/releases/latest">Download APK</a>
+            <a class="button secondary" href="https://github.com/agupta07505/SmartIsland">View Source</a>
+          </div>
+          <dl class="hero-stats" aria-label="Project highlights">
+            <div>
+              <dt>Android</dt>
+              <dd>8.0+</dd>
+            </div>
+            <div>
+              <dt>Version</dt>
+              <dd>1.0</dd>
+            </div>
+            <div>
+              <dt>License</dt>
+              <dd>GPLv3</dd>
+            </div>
+          </dl>
+        </div>
+        <div class="showcase" aria-label="Smart Island screenshots">
+          <div class="phone phone-main">
+            <img src="assets/screenshot-notification.jpeg" alt="Smart Island notification overlay on Android" />
+          </div>
+          <div class="phone phone-side top">
+            <img src="assets/screenshot-settings.jpeg" alt="Smart Island settings screen" />
+          </div>
+          <div class="phone phone-side bottom">
+            <img src="assets/screenshot-media.jpeg" alt="Smart Island media controls" />
+          </div>
+        </div>
+      </section>
+
+      <section class="section strip" aria-label="Technical stack">
+        <span>Kotlin</span>
+        <span>Jetpack Compose</span>
+        <span>Material 3</span>
+        <span>DataStore</span>
+        <span>Notification Listener</span>
+      </section>
+
+      <section class="section split" id="features">
+        <div>
+          <p class="eyebrow">What it does</p>
+          <h2>Notifications that stay useful without taking over your screen.</h2>
+        </div>
+        <div class="feature-grid">
+          <article>
+            <h3>Floating overlay</h3>
+            <p>Draws a compact island above other apps with Android overlay window APIs.</p>
+          </article>
+          <article>
+            <h3>Smart notification cards</h3>
+            <p>Converts active notifications into glanceable cards with open, dismiss, and action support.</p>
+          </article>
+          <article>
+            <h3>Calls and media</h3>
+            <p>Detects call states, media sessions, artwork, playback controls, and progress when available.</p>
+          </article>
+          <article>
+            <h3>Custom controls</h3>
+            <p>Lets users adjust island width, height, position, and corner radius from the app.</p>
+          </article>
+          <article>
+            <h3>Smooth motion</h3>
+            <p>Morphs between collapsed and expanded states with Compose spring animations.</p>
+          </article>
+          <article>
+            <h3>Demo modes</h3>
+            <p>Includes notification, call, and music previews so setup can be tested quickly.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section privacy-band" id="privacy">
+        <div>
+          <p class="eyebrow">Local first</p>
+          <h2>Built around transparent permissions.</h2>
+          <p>
+            Smart Island processes notification data on the device, stores preferences locally, and currently does not
+            request the Android <code>INTERNET</code> permission.
+          </p>
+        </div>
+        <div class="permission-list">
+          <div>
+            <span>SYSTEM_ALERT_WINDOW</span>
+            <p>Displays the floating island above other apps.</p>
+          </div>
+          <div>
+            <span>BIND_NOTIFICATION_LISTENER_SERVICE</span>
+            <p>Reads notification metadata for notification, call, and media states.</p>
+          </div>
+          <div>
+            <span>FOREGROUND_SERVICE</span>
+            <p>Keeps the overlay active while Smart Island is enabled.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section setup" id="setup">
+        <div class="section-head">
+          <p class="eyebrow">Getting started</p>
+          <h2>Install, grant, enable.</h2>
+        </div>
+        <ol class="steps">
+          <li>
+            <span>01</span>
+            <h3>Download the APK</h3>
+            <p>Install the latest signed package from GitHub Releases.</p>
+          </li>
+          <li>
+            <span>02</span>
+            <h3>Grant overlay permission</h3>
+            <p>Allow Smart Island to draw the island above other apps.</p>
+          </li>
+          <li>
+            <span>03</span>
+            <h3>Enable notification access</h3>
+            <p>Turn on listener access so notifications can become island cards.</p>
+          </li>
+          <li>
+            <span>04</span>
+            <h3>Tune the island</h3>
+            <p>Set size, position, corner radius, and test the demo modes.</p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="section docs" id="docs">
+        <div>
+          <p class="eyebrow">Open source</p>
+          <h2>Designed to be inspected, built, and improved.</h2>
+          <p>
+            The repository includes the Android source, release notes, privacy policy, contribution guide, and security
+            reporting process.
+          </p>
+        </div>
+        <div class="doc-links">
+          <a href="https://github.com/agupta07505/SmartIsland/blob/main/README.md">README</a>
+          <a href="https://github.com/agupta07505/SmartIsland/blob/main/PRIVACY.md">Privacy Policy</a>
+          <a href="https://github.com/agupta07505/SmartIsland/blob/main/TERMS.md">Terms</a>
+          <a href="https://github.com/agupta07505/SmartIsland/issues/new/choose">Report or Request</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>Smart Island by Animesh Gupta</span>
+      <a href="mailto:agupta07505@gmail.com">agupta07505@gmail.com</a>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

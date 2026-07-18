@@ -35,3 +35,42 @@ const observer = new IntersectionObserver(
 );
 
 sections.forEach((section) => observer.observe(section));
+
+// Lightbox Modal Handling for Screenshots Zoom
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+const lightboxCaption = document.getElementById("lightbox-caption");
+const lightboxClose = document.getElementById("lightbox-close");
+const lightboxTriggers = document.querySelectorAll(".lightbox-trigger");
+
+lightboxTriggers.forEach((trigger) => {
+  trigger.addEventListener("click", () => {
+    const imgSrc = trigger.getAttribute("data-img") || trigger.querySelector("img")?.src;
+    const captionText = trigger.querySelector("figcaption")?.textContent || "";
+    if (lightboxImg && lightbox) {
+      lightboxImg.src = imgSrc;
+      if (lightboxCaption) lightboxCaption.textContent = captionText;
+      lightbox.classList.add("active");
+      lightbox.setAttribute("aria-hidden", "false");
+    }
+  });
+});
+
+lightboxClose?.addEventListener("click", () => {
+  lightbox?.classList.remove("active");
+  lightbox?.setAttribute("aria-hidden", "true");
+});
+
+lightbox?.addEventListener("click", (e) => {
+  if (e.target === lightbox) {
+    lightbox.classList.remove("active");
+    lightbox.setAttribute("aria-hidden", "true");
+  }
+});
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && lightbox?.classList.contains("active")) {
+    lightbox.classList.remove("active");
+    lightbox.setAttribute("aria-hidden", "true");
+  }
+});

@@ -10,7 +10,7 @@
   <meta name="keywords" content="Smart Island, Android overlay, Dynamic Island, Android notifications, Jetpack Compose, open source, notification cards, custom notification" />
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#050608" />
-  <title>Smart Island | Android Dynamic Notification Island</title>
+  <title>Smart Island v3.2 | Android Dynamic Notification Island</title>
   
   <!-- Canonical Link -->
   <link rel="canonical" href="https://smartisland.vercel.app/" />
@@ -18,7 +18,7 @@
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://smartisland.vercel.app/" />
-  <meta property="og:title" content="Smart Island | Android Dynamic Notification Island" />
+  <meta property="og:title" content="Smart Island v3.2 | Android Dynamic Notification Island" />
   <meta property="og:description" content="A lightweight open-source Android app that transforms notifications, calls, and media playback into a floating, glanceable island near the status bar." />
   <meta property="og:image" content="https://smartisland.vercel.app/assets/logo-mark.png" />
   <meta property="og:site_name" content="Smart Island" />
@@ -26,7 +26,7 @@
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:url" content="https://smartisland.vercel.app/" />
-  <meta name="twitter:title" content="Smart Island | Android Dynamic Notification Island" />
+  <meta name="twitter:title" content="Smart Island v3.2 | Android Dynamic Notification Island" />
   <meta name="twitter:description" content="A lightweight open-source Android app that transforms notifications, calls, and media playback into a floating, glanceable island near the status bar." />
   <meta name="twitter:image" content="https://smartisland.vercel.app/assets/logo-mark.png" />
 
@@ -55,7 +55,7 @@
       "price": "0",
       "priceCurrency": "USD"
     },
-    "softwareVersion": "3.0",
+    "softwareVersion": "3.2",
     "license": "https://github.com/agupta07505/SmartIsland/blob/main/LICENSE",
     "codeRepository": "https://github.com/agupta07505/SmartIsland"
   }
@@ -65,14 +65,16 @@
 <body>
   <header class="site-header" data-header>
     <a class="brand" href="#top" aria-label="Smart Island home">
-      <img src="assets/logo-mark.png" alt="" />
+      <img src="assets/logo-mark.png" alt="Smart Island Logo" />
       <span>Smart Island</span>
+      <span class="version-badge">v3.2</span>
     </a>
     <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" data-nav-toggle>
       <span></span>
       <span></span>
     </button>
     <nav class="nav" data-nav>
+      <a href="#whats-new">What's New</a>
       <a href="#screenshots">Screenshots</a>
       <a href="#features">Features</a>
       <a href="#privacy">Privacy</a>
@@ -84,14 +86,14 @@
   <main id="top">
     <section class="hero section">
       <div class="hero-copy">
-        <p class="eyebrow">Open-source Android overlay</p>
+        <p class="eyebrow"><span class="badge-new">v3.2 Release</span> Open-source Android overlay</p>
         <h1>Smart Island</h1>
         <p class="hero-text">
           A lightweight Android app that transforms notifications, calls, and media playback into a floating,
           glanceable island near the status bar.
         </p>
         <div class="hero-actions" aria-label="Primary actions">
-          <a class="button primary" href="https://github.com/agupta07505/SmartIsland/releases/latest">Download APK</a>
+          <a class="button primary" href="https://github.com/agupta07505/SmartIsland/releases/latest">Download APK (v3.2)</a>
           <a class="button secondary" href="https://github.com/agupta07505/SmartIsland">View Source</a>
         </div>
         <dl class="hero-stats" aria-label="Project highlights">
@@ -101,7 +103,7 @@
           </div>
           <div>
             <dt>Version</dt>
-            <dd>3.0</dd>
+            <dd>3.2</dd>
           </div>
           <div>
             <dt>License</dt>
@@ -111,14 +113,14 @@
       </div>
       <div class="showcase" aria-label="Smart Island screenshots">
         <div class="phone phone-main">
-          <img src="assets/Customizations.jpeg"
+          <img src="assets/SmartIslandMusic.jpg"
             alt="Smart Island expanded media notification overlay with wavy seek bar" />
         </div>
         <div class="phone phone-side top">
-          <img src="assets/Home.jpeg" alt="Smart Island redesigned home screen dashboard with topic cards" />
+          <img src="assets/Home.jpg" alt="Smart Island home screen dashboard with topic cards" />
         </div>
         <div class="phone phone-side bottom">
-          <img src="assets/Positions.jpeg" alt="Smart Island positions customization screen with offset sliders" />
+          <img src="assets/Permissions.jpg" alt="Smart Island permissions and battery setup screen" />
         </div>
       </div>
     </section>
@@ -129,6 +131,50 @@
       <span>Material 3</span>
       <span>DataStore</span>
       <span>Notification Listener</span>
+      <span>System Shade Suppression</span>
+      <span>Orientation Auto-Hide</span>
+    </section>
+
+    <!-- What's New in v3.2 Release Highlights Section -->
+    <section class="section whats-new" id="whats-new">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Release Highlights</p>
+          <h2>What's New in Version 3.2 ✨</h2>
+        </div>
+      </div>
+      <div class="whats-new-grid">
+        <div class="whats-new-card">
+          <div class="card-icon">🔕</div>
+          <h3>System Shade Notification Suppression</h3>
+          <p>Active island notifications are automatically suppressed from the OS notification tray, eliminating duplicate heads-up popups.</p>
+        </div>
+        <div class="whats-new-card">
+          <div class="card-icon">🔄</div>
+          <h3>Landscape Orientation Auto-Hide</h3>
+          <p>Detects device orientation changes and temporarily hides the overlay in landscape mode for uninterrupted gaming and video playback.</p>
+        </div>
+        <div class="whats-new-card">
+          <div class="card-icon">🔒</div>
+          <h3>Lock Screen Privacy & Keyguard Controls</h3>
+          <p>Opt-in lock screen display support with optional sensitive notification content masking controls.</p>
+        </div>
+        <div class="whats-new-card">
+          <div class="card-icon">🔋</div>
+          <h3>Battery Optimization Guidance</h3>
+          <p>Dedicated setup cards in Permissions to guide users in granting background battery optimization exemptions.</p>
+        </div>
+        <div class="whats-new-card">
+          <div class="card-icon">🎯</div>
+          <h3>Reliable Pass-Through Touch Bounds</h3>
+          <p>Bypassed hidden API restrictions for window touch bounds, completely eliminating collapsed pill non-responsiveness and touch dead zones.</p>
+        </div>
+        <div class="whats-new-card">
+          <div class="card-icon">🤝</div>
+          <h3>Community PR #11 Merged</h3>
+          <p>Special thanks to <strong>Likhith Krishna</strong> (<code>@likhithkrishna1103-tech</code>) for merging key improvements to lock screen privacy and media player responsiveness.</p>
+        </div>
+      </div>
     </section>
 
     <section class="section screenshots" id="screenshots">
@@ -139,41 +185,48 @@
         </div>
       </div>
       <div class="screenshot-grid">
-        <figure>
-          <img src="assets/SmartIsland.jpeg"
+        <figure class="lightbox-trigger" data-img="assets/SmartIslandMusic.jpg">
+          <img src="assets/SmartIslandMusic.jpg"
             alt="Smart Island expanded media notification overlay with custom wavy music seek bar" />
-          <figcaption>Floating Island Overlay</figcaption>
+          <figcaption>Wavy Music Player</figcaption>
         </figure>
-        <figure>
-          <img src="assets/Home.jpeg" alt="Smart Island redesigned home screen dashboard featuring topic cards" />
+        <figure class="lightbox-trigger" data-img="assets/Home.jpg">
+          <img src="assets/Home.jpg" alt="Smart Island home screen dashboard featuring topic cards" />
           <figcaption>Home Dashboard</figcaption>
         </figure>
-        <figure>
-          <img src="assets/Permissions.jpeg"
-            alt="Smart Island permissions setup screen for overlay and notification listener access" />
-          <figcaption>Permissions Setup</figcaption>
+        <figure class="lightbox-trigger" data-img="assets/Permissions.jpg">
+          <img src="assets/Permissions.jpg"
+            alt="Smart Island permissions setup screen for overlay and battery optimization" />
+          <figcaption>Permissions & Battery Setup</figcaption>
         </figure>
-        <figure>
-          <img src="assets/Positions.jpeg"
+        <figure class="lightbox-trigger" data-img="assets/Positions.jpg">
+          <img src="assets/Positions.jpg"
             alt="Smart Island position adjustments screen with size, padding, and offset sliders" />
           <figcaption>Interactive Customization</figcaption>
         </figure>
-        <figure>
-          <img src="assets/Customizations.jpeg" alt="Smart Island custom color picker and customization settings" />
+        <figure class="lightbox-trigger" data-img="assets/Customizations.jpg">
+          <img src="assets/Customizations.jpg" alt="Smart Island custom color picker and customization settings" />
           <figcaption>Color Customization</figcaption>
         </figure>
-        <figure>
-          <img src="assets/AppShortcuts.jpeg" alt="Smart Island application shortcuts selection screen" />
-          <figcaption>Launcher Shortcuts</figcaption>
+        <figure class="lightbox-trigger" data-img="assets/SmartIslandPill.jpg">
+          <img src="assets/SmartIslandPill.jpg" alt="Smart Island collapsed pill on status bar" />
+          <figcaption>Collapsed Status Bar Pill</figcaption>
         </figure>
-        <figure>
+        <figure class="lightbox-trigger" data-img="assets/SmartIslandClear.jpg">
+          <img src="assets/SmartIslandClear.jpg" alt="Smart Island drag to clear notification drop zone" />
+          <figcaption>Drag to Clear Notification</figcaption>
+        </figure>
+        <figure class="lightbox-trigger" data-img="assets/AppShortcuts.jpg">
+          <img src="assets/AppShortcuts.jpg" alt="Smart Island application shortcuts selection grid" />
+          <figcaption>App Shortcuts Launcher</figcaption>
+        </figure>
+        <figure class="lightbox-trigger" data-img="assets/Support.jpg">
+          <img src="assets/Support.jpg" alt="Smart Island support and Telegram community screen" />
+          <figcaption>Support & Community</figcaption>
+        </figure>
+        <figure class="lightbox-trigger" data-img="assets/Gestures.jpeg">
           <img src="assets/Gestures.jpeg" alt="Smart Island interactive gesture guide and tutorial" />
           <figcaption>Animated Gesture Guide</figcaption>
-        </figure>
-        <figure>
-          <img src="assets/About.jpeg"
-            alt="Smart Island about screen displaying developer info, app version, and GNU GPLv3 license" />
-          <figcaption>About & Version Info</figcaption>
         </figure>
       </div>
     </section>
@@ -189,8 +242,16 @@
           <p>Draws a compact, custom overlay above other apps using native Android window manager APIs.</p>
         </article>
         <article>
-          <h3>Smart notification cards</h3>
-          <p>Converts active notifications into glanceable cards with open, dismiss, and direct action support.</p>
+          <h3>Notification Suppression</h3>
+          <p>Converts active notifications into glanceable cards while suppressing system shade duplicate alerts.</p>
+        </article>
+        <article>
+          <h3>Landscape Auto-Hide</h3>
+          <p>Automatically detects device orientation to temporarily hide overlay during full-screen games and video streaming.</p>
+        </article>
+        <article>
+          <h3>Lock Screen Privacy</h3>
+          <p>Opt-in lock screen status viewing with automatic sensitive content masking options.</p>
         </article>
         <article>
           <h3>Wavy music seek bar</h3>
@@ -198,25 +259,15 @@
         </article>
         <article>
           <h3>Interactive customization</h3>
-          <p>Lets users adjust island width, height, vertical offsets, and corner radius dynamically from the app.</p>
+          <p>Adjust island width, height, vertical offsets, corner radius, and custom RGB colors dynamically.</p>
         </article>
         <article>
-          <h3>Gesture guide</h3>
-          <p>Provides an interactive dashboard guide with looping finger path animations and swipe sandboxes.</p>
+          <h3>App Shortcuts Launcher</h3>
+          <p>Configure up to eight favorite apps for instant 1-tap launch directly from the expanded island.</p>
         </article>
         <article>
-          <h3>Battery charging status</h3>
-          <p>Displays animated charging status overlays, electric visual indicators, and remaining charge time
-            estimates.</p>
-        </article>
-        <article>
-          <h3>Reorganized dashboard</h3>
-          <p>Reorganizes the main settings screen into clean topic cards (Permissions, Positions, Support, About).</p>
-        </article>
-        <article>
-          <h3>Live session sync</h3>
-          <p>Synchronizes playing status, repeat/loop modes, and song favorites in real-time with background players.
-          </p>
+          <h3>Battery Charging & Optimization</h3>
+          <p>Displays animated charging status, time-until-full estimates, and includes background optimization setup.</p>
         </article>
       </div>
     </section>
@@ -255,7 +306,7 @@
         <li>
           <span>01</span>
           <h3>Download the APK</h3>
-          <p>Install the latest signed package from GitHub Releases.</p>
+          <p>Install the latest signed v3.2 package from GitHub Releases.</p>
         </li>
         <li>
           <span>02</span>
@@ -269,8 +320,8 @@
         </li>
         <li>
           <span>04</span>
-          <h3>Tune the island</h3>
-          <p>Set size, position, corner radius, and test the demo modes.</p>
+          <h3>Disable battery optimization</h3>
+          <p>Set Smart Island to 'No restrictions' so Android keeps the overlay service running.</p>
         </li>
       </ol>
     </section>
@@ -285,16 +336,18 @@
         </p>
       </div>
       <div class="doc-links">
-        <a href="https://github.com/agupta07505/SmartIsland/blob/main/README.md">README</a>
-        <a href="https://github.com/agupta07505/SmartIsland/blob/main/PRIVACY.md">Privacy Policy</a>
-        <a href="https://github.com/agupta07505/SmartIsland/blob/main/TERMS.md">Terms</a>
-        <a href="https://github.com/agupta07505/SmartIsland/issues/new/choose">Report or Request</a>
+        <a href="https://github.com/agupta07505/SmartIsland/blob/main/README.md" target="_blank" rel="noopener">README</a>
+        <a href="https://github.com/agupta07505/SmartIsland/blob/main/CHANGELOG.md" target="_blank" rel="noopener">Changelog</a>
+        <a href="https://github.com/agupta07505/SmartIsland/blob/main/PRIVACY.md" target="_blank" rel="noopener">Privacy Policy</a>
+        <a href="https://github.com/agupta07505/SmartIsland/blob/main/TERMS.md" target="_blank" rel="noopener">Terms</a>
+        <a href="https://github.com/agupta07505/SmartIsland/issues/new/choose" target="_blank" rel="noopener">Report or Request</a>
+        <a href="https://telegram.me/SmartIslandApp" target="_blank" rel="noopener">Telegram Community</a>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <span>Smart Island by Animesh Gupta</span>
+    <span>Smart Island by Animesh Gupta © 2026</span>
     <div class="footer-links">
       <a href="mailto:agupta.07505@gmail.com">agupta.07505@gmail.com</a>
       <div class="social-links">
@@ -313,6 +366,15 @@
       </div>
     </div>
   </footer>
+
+  <!-- Lightbox Modal for Screenshots Zoom -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightbox-close" aria-label="Close image preview">&times;</button>
+      <img id="lightbox-img" src="" alt="Enlarged screenshot preview" />
+      <div id="lightbox-caption" class="lightbox-caption"></div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>

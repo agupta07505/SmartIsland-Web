@@ -7,10 +7,10 @@
   <meta name="description"
     content="Smart Island is a lightweight Android overlay that turns notifications, calls, and media playback into a floating glanceable island." />
   <meta name="author" content="Animesh Gupta" />
-  <meta name="keywords" content="Smart Island, Android overlay, Dynamic Island, Android notifications, Jetpack Compose, open source, notification cards, custom notification" />
+  <meta name="keywords" content="Smart Island, Android overlay, Dynamic Island, Android notifications, Jetpack Compose, open source, notification cards, custom notification, Shizuku" />
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#050608" />
-  <title>Smart Island v3.2 | Android Dynamic Notification Island</title>
+  <title>Smart Island v3.2.1 | Android Dynamic Notification Island</title>
   
   <!-- Canonical Link -->
   <link rel="canonical" href="https://smartisland.vercel.app/" />
@@ -18,7 +18,7 @@
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://smartisland.vercel.app/" />
-  <meta property="og:title" content="Smart Island v3.2 | Android Dynamic Notification Island" />
+  <meta property="og:title" content="Smart Island v3.2.1 | Android Dynamic Notification Island" />
   <meta property="og:description" content="A lightweight open-source Android app that transforms notifications, calls, and media playback into a floating, glanceable island near the status bar." />
   <meta property="og:image" content="https://smartisland.vercel.app/assets/logo-mark.png" />
   <meta property="og:site_name" content="Smart Island" />
@@ -26,7 +26,7 @@
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:url" content="https://smartisland.vercel.app/" />
-  <meta name="twitter:title" content="Smart Island v3.2 | Android Dynamic Notification Island" />
+  <meta name="twitter:title" content="Smart Island v3.2.1 | Android Dynamic Notification Island" />
   <meta name="twitter:description" content="A lightweight open-source Android app that transforms notifications, calls, and media playback into a floating, glanceable island near the status bar." />
   <meta name="twitter:image" content="https://smartisland.vercel.app/assets/logo-mark.png" />
 
@@ -55,7 +55,7 @@
       "price": "0",
       "priceCurrency": "USD"
     },
-    "softwareVersion": "3.2",
+    "softwareVersion": "3.2.1",
     "license": "https://github.com/agupta07505/SmartIsland/blob/main/LICENSE",
     "codeRepository": "https://github.com/agupta07505/SmartIsland"
   }
@@ -67,7 +67,7 @@
     <a class="brand" href="#top" aria-label="Smart Island home">
       <img src="assets/logo-mark.png" alt="Smart Island Logo" />
       <span>Smart Island</span>
-      <span class="version-badge">v3.2</span>
+      <span class="version-badge">v3.2.1</span>
     </a>
     <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" data-nav-toggle>
       <span></span>
@@ -86,14 +86,14 @@
   <main id="top">
     <section class="hero section">
       <div class="hero-copy">
-        <p class="eyebrow"><span class="badge-new">v3.2 Release</span> Open-source Android overlay</p>
+        <p class="eyebrow"><span class="badge-new">v3.2.1 Released</span> Open-source Android overlay</p>
         <h1>Smart Island</h1>
         <p class="hero-text">
           A lightweight Android app that transforms notifications, calls, and media playback into a floating,
           glanceable island near the status bar.
         </p>
         <div class="hero-actions" aria-label="Primary actions">
-          <a class="button primary" href="https://github.com/agupta07505/SmartIsland/releases/latest">Download APK (v3.2)</a>
+          <a class="button primary" href="https://github.com/agupta07505/SmartIsland/releases/latest">Download APK (v3.2.1)</a>
           <a class="button secondary" href="https://github.com/agupta07505/SmartIsland">View Source</a>
         </div>
         <dl class="hero-stats" aria-label="Project highlights">
@@ -103,7 +103,7 @@
           </div>
           <div>
             <dt>Version</dt>
-            <dd>3.2</dd>
+            <dd>3.2.1</dd>
           </div>
           <div>
             <dt>License</dt>
@@ -113,14 +113,14 @@
       </div>
       <div class="showcase" aria-label="Smart Island screenshots">
         <div class="phone phone-main">
-          <img src="assets/SmartIslandMusic.jpg"
+          <img src="assets/screenshots/SmartIslandMusic.jpg"
             alt="Smart Island expanded media notification overlay with wavy seek bar" />
         </div>
         <div class="phone phone-side top">
-          <img src="assets/Home.jpg" alt="Smart Island home screen dashboard with topic cards" />
+          <img src="assets/screenshots/Home.jpg" alt="Smart Island home screen dashboard with quick controls" />
         </div>
         <div class="phone phone-side bottom">
-          <img src="assets/Permissions.jpg" alt="Smart Island permissions and battery setup screen" />
+          <img src="assets/screenshots/Permissions.jpg" alt="Smart Island permissions and Shizuku 1-tap setup screen" />
         </div>
       </div>
     </section>
@@ -130,49 +130,51 @@
       <span>Jetpack Compose</span>
       <span>Material 3</span>
       <span>DataStore</span>
+      <span>Shizuku 1-Tap</span>
+      <span>System Service Recovery</span>
       <span>Notification Listener</span>
       <span>System Shade Suppression</span>
       <span>Orientation Auto-Hide</span>
     </section>
 
-    <!-- What's New in v3.2 Release Highlights Section -->
+    <!-- What's New in v3.2.1 Release Highlights Section -->
     <section class="section whats-new" id="whats-new">
       <div class="section-head">
         <div>
           <p class="eyebrow">Release Highlights</p>
-          <h2>What's New in Version 3.2 ✨</h2>
+          <h2>What's New in Version 3.2.1 ✨</h2>
         </div>
       </div>
       <div class="whats-new-grid">
         <div class="whats-new-card">
-          <div class="card-icon">🔕</div>
-          <h3>System Shade Notification Suppression</h3>
-          <p>Active island notifications are automatically suppressed from the OS notification tray, eliminating duplicate heads-up popups.</p>
+          <div class="card-icon">⚡</div>
+          <h3>Shizuku 1-Tap Setup & Permission Grant</h3>
+          <p>Automatically grant Restricted Settings (<code>ACCESS_RESTRICTED_SETTINGS</code>), Usage Access (<code>GET_USAGE_STATS</code>), System Overlay, Accessibility, Notification Access, and Battery Whitelist with a single tap using Shizuku.</p>
         </div>
         <div class="whats-new-card">
-          <div class="card-icon">🔄</div>
-          <h3>Landscape Orientation Auto-Hide</h3>
-          <p>Detects device orientation changes and temporarily hides the overlay in landscape mode for uninterrupted gaming and video playback.</p>
+          <div class="card-icon">🛠️</div>
+          <h3>System Service Recovery (`SystemServiceRecovery`)</h3>
+          <p>Automatic background recovery engine for reconnecting system-managed services (Accessibility and Notification Listener) to maintain high uptime and seamless state restoration.</p>
         </div>
         <div class="whats-new-card">
-          <div class="card-icon">🔒</div>
-          <h3>Lock Screen Privacy & Keyguard Controls</h3>
-          <p>Opt-in lock screen display support with optional sensitive notification content masking controls.</p>
+          <div class="card-icon">🧹</div>
+          <h3>Clear Test Notifications Button</h3>
+          <p>Dedicated 1-tap "Clear Test Notifications" action added right after the Quick Testing controls to clear test cards and reset active island states instantly.</p>
         </div>
         <div class="whats-new-card">
-          <div class="card-icon">🔋</div>
-          <h3>Battery Optimization Guidance</h3>
-          <p>Dedicated setup cards in Permissions to guide users in granting background battery optimization exemptions.</p>
+          <div class="card-icon">📱</div>
+          <h3>Direct Notification Listener Toggle Page</h3>
+          <p>Clicking Notification Listener permission setup launches directly into Smart Island's detail toggle page via <code>ACTION_NOTIFICATION_LISTENER_DETAIL_SETTINGS</code>.</p>
         </div>
         <div class="whats-new-card">
-          <div class="card-icon">🎯</div>
-          <h3>Reliable Pass-Through Touch Bounds</h3>
-          <p>Bypassed hidden API restrictions for window touch bounds, completely eliminating collapsed pill non-responsiveness and touch dead zones.</p>
+          <div class="card-icon">🛡️</div>
+          <h3>OEM ROM Background Autostart Guards</h3>
+          <p>Prevents aggressive OEM Accessibility Service kills on MIUI/HyperOS, ColorOS/RealmeUI, FuntouchOS, and OneUI vendor systems.</p>
         </div>
         <div class="whats-new-card">
-          <div class="card-icon">🤝</div>
-          <h3>Community PR #11 Merged</h3>
-          <p>Special thanks to <strong>Likhith Krishna</strong> (<code>@likhithkrishna1103-tech</code>) for merging key improvements to lock screen privacy and media player responsiveness.</p>
+          <div class="card-icon">🎨</div>
+          <h3>Refreshed Midpoint Launcher Icon</h3>
+          <p>Newly styled and balanced app icon with clean proportions and optimized vector assets across all screen densities.</p>
         </div>
       </div>
     </section>
@@ -185,48 +187,57 @@
         </div>
       </div>
       <div class="screenshot-grid">
-        <figure class="lightbox-trigger" data-img="assets/SmartIslandMusic.jpg">
-          <img src="assets/SmartIslandMusic.jpg"
-            alt="Smart Island expanded media notification overlay with custom wavy music seek bar" />
-          <figcaption>Wavy Music Player</figcaption>
-        </figure>
-        <figure class="lightbox-trigger" data-img="assets/Home.jpg">
-          <img src="assets/Home.jpg" alt="Smart Island home screen dashboard featuring topic cards" />
+        <figure class="lightbox-trigger" data-img="assets/screenshots/Home.jpg">
+          <img src="assets/screenshots/Home.jpg" alt="Smart Island home screen dashboard with quick test controls" />
           <figcaption>Home Dashboard</figcaption>
         </figure>
-        <figure class="lightbox-trigger" data-img="assets/Permissions.jpg">
-          <img src="assets/Permissions.jpg"
-            alt="Smart Island permissions setup screen for overlay and battery optimization" />
-          <figcaption>Permissions & Battery Setup</figcaption>
+        <figure class="lightbox-trigger" data-img="assets/screenshots/Settings.jpg">
+          <img src="assets/screenshots/Settings.jpg" alt="Redesigned settings hub layout" />
+          <figcaption>Settings Hub</figcaption>
         </figure>
-        <figure class="lightbox-trigger" data-img="assets/Positions.jpg">
-          <img src="assets/Positions.jpg"
-            alt="Smart Island position adjustments screen with size, padding, and offset sliders" />
-          <figcaption>Interactive Customization</figcaption>
+        <figure class="lightbox-trigger" data-img="assets/screenshots/Permissions.jpg">
+          <img src="assets/screenshots/Permissions.jpg"
+            alt="Smart Island permissions setup screen with Shizuku 1-tap grant" />
+          <figcaption>Permissions & Shizuku Setup</figcaption>
         </figure>
-        <figure class="lightbox-trigger" data-img="assets/Customizations.jpg">
-          <img src="assets/Customizations.jpg" alt="Smart Island custom color picker and customization settings" />
-          <figcaption>Color Customization</figcaption>
+        <figure class="lightbox-trigger" data-img="assets/screenshots/NotificationsPrivacy.jpg">
+          <img src="assets/screenshots/NotificationsPrivacy.jpg"
+            alt="Notifications and privacy controls for lock screen and notification shade" />
+          <figcaption>Notifications & Privacy</figcaption>
         </figure>
-        <figure class="lightbox-trigger" data-img="assets/SmartIslandPill.jpg">
-          <img src="assets/SmartIslandPill.jpg" alt="Smart Island collapsed pill on status bar" />
-          <figcaption>Collapsed Status Bar Pill</figcaption>
+        <figure class="lightbox-trigger" data-img="assets/screenshots/Positions.jpg">
+          <img src="assets/screenshots/Positions.jpg"
+            alt="Smart Island position adjustments screen with width, height, and offset sliders" />
+          <figcaption>Island Positions & Offsets</figcaption>
         </figure>
-        <figure class="lightbox-trigger" data-img="assets/SmartIslandClear.jpg">
-          <img src="assets/SmartIslandClear.jpg" alt="Smart Island drag to clear notification drop zone" />
-          <figcaption>Drag to Clear Notification</figcaption>
+        <figure class="lightbox-trigger" data-img="assets/screenshots/Customizations.jpg">
+          <img src="assets/screenshots/Customizations.jpg" alt="Smart Island color customizations and color picker" />
+          <figcaption>Colors & Appearance</figcaption>
         </figure>
-        <figure class="lightbox-trigger" data-img="assets/AppShortcuts.jpg">
-          <img src="assets/AppShortcuts.jpg" alt="Smart Island application shortcuts selection grid" />
+        <figure class="lightbox-trigger" data-img="assets/screenshots/AppShortcuts.jpg">
+          <img src="assets/screenshots/AppShortcuts.jpg" alt="Smart Island application shortcuts launcher selection grid" />
           <figcaption>App Shortcuts Launcher</figcaption>
         </figure>
-        <figure class="lightbox-trigger" data-img="assets/Support.jpg">
-          <img src="assets/Support.jpg" alt="Smart Island support and Telegram community screen" />
-          <figcaption>Support & Community</figcaption>
+        <figure class="lightbox-trigger" data-img="assets/screenshots/Gestures.jpg">
+          <img src="assets/screenshots/Gestures.jpg" alt="Smart Island interactive gesture guide and tutorial" />
+          <figcaption>Interactive Gesture Guide</figcaption>
         </figure>
-        <figure class="lightbox-trigger" data-img="assets/Gestures.jpeg">
-          <img src="assets/Gestures.jpeg" alt="Smart Island interactive gesture guide and tutorial" />
-          <figcaption>Animated Gesture Guide</figcaption>
+        <figure class="lightbox-trigger" data-img="assets/screenshots/SmartIslandMusic.jpg">
+          <img src="assets/screenshots/SmartIslandMusic.jpg"
+            alt="Smart Island expanded media notification overlay with wavy music seek bar" />
+          <figcaption>Wavy Music Player</figcaption>
+        </figure>
+        <figure class="lightbox-trigger" data-img="assets/screenshots/SmartIslandBattery.jpg">
+          <img src="assets/screenshots/SmartIslandBattery.jpg" alt="Battery charging overlay and custom color picker" />
+          <figcaption>Battery Charging Overlay</figcaption>
+        </figure>
+        <figure class="lightbox-trigger" data-img="assets/screenshots/Welcome.jpg">
+          <img src="assets/screenshots/Welcome.jpg" alt="Smart Island first-run welcome dialog" />
+          <figcaption>Welcome Experience</figcaption>
+        </figure>
+        <figure class="lightbox-trigger" data-img="assets/screenshots/SettingsMore.jpg">
+          <img src="assets/screenshots/SettingsMore.jpg" alt="Scrolled settings overview and credits" />
+          <figcaption>Settings Sections & Credits</figcaption>
         </figure>
       </div>
     </section>
@@ -240,6 +251,14 @@
         <article>
           <h3>Floating overlay</h3>
           <p>Draws a compact, custom overlay above other apps using native Android window manager APIs.</p>
+        </article>
+        <article>
+          <h3>Shizuku 1-Tap Setup</h3>
+          <p>Grant Accessibility, Notification Access, System Overlay, Usage Access, and Battery Whitelist in one tap.</p>
+        </article>
+        <article>
+          <h3>System Service Recovery</h3>
+          <p>Automatic background recovery engine to maintain continuous system service connections.</p>
         </article>
         <article>
           <h3>Notification Suppression</h3>
@@ -294,6 +313,10 @@
           <span>FOREGROUND_SERVICE</span>
           <p>Keeps the overlay active while Smart Island is enabled.</p>
         </div>
+        <div>
+          <span>ACCESS_RESTRICTED_SETTINGS</span>
+          <p>Allows Shizuku 1-tap permission management on Android 13+ devices.</p>
+        </div>
       </div>
     </section>
 
@@ -306,12 +329,12 @@
         <li>
           <span>01</span>
           <h3>Download the APK</h3>
-          <p>Install the latest signed v3.2 package from GitHub Releases.</p>
+          <p>Install the latest signed v3.2.1 package from GitHub Releases.</p>
         </li>
         <li>
           <span>02</span>
           <h3>Grant overlay permission</h3>
-          <p>Allow Smart Island to draw the island above other apps.</p>
+          <p>Allow Smart Island to draw the island above other apps (or use 1-Tap Shizuku setup).</p>
         </li>
         <li>
           <span>03</span>

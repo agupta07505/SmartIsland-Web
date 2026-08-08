@@ -3,14 +3,15 @@
 
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
   <meta name="description"
     content="Smart Island is a lightweight Android overlay that turns notifications, calls, navigation, and media playback into a floating glanceable island." />
   <meta name="author" content="Animesh Gupta" />
-  <meta name="keywords" content="Smart Island, Android overlay, Dynamic Island, Android notifications, Jetpack Compose, open source, notification cards, custom notification, Shizuku, theme customization, navigation overlay" />
+  <meta name="keywords"
+    content="Smart Island, Android overlay, Dynamic Island, Android notifications, Jetpack Compose, open source, notification cards, custom notification, Shizuku, theme customization, navigation overlay" />
   <meta name="robots" content="index, follow" />
-  <meta name="theme-color" content="#050608" />
-  <title>Smart Island v4.0.0 | Android Dynamic Notification Island</title>
+  <meta name="theme-color" content="#06080d" />
+  <title>Smart Island v4.0.0 | Dynamic Android Notification Overlay</title>
 
   <!-- Canonical Link -->
   <link rel="canonical" href="https://smartisland.vercel.app/" />
@@ -18,20 +19,24 @@
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://smartisland.vercel.app/" />
-  <meta property="og:title" content="Smart Island v4.0.0 | Android Dynamic Notification Island" />
-  <meta property="og:description" content="A lightweight open-source Android app that transforms notifications, calls, navigation guidance, and media playback into a floating, glanceable island near the status bar." />
+  <meta property="og:title" content="Smart Island v4.0.0 | Dynamic Android Notification Overlay" />
+  <meta property="og:description"
+    content="A lightweight open-source Android app that transforms notifications, calls, navigation guidance, and media playback into a floating, glanceable island near the status bar." />
   <meta property="og:image" content="https://smartisland.vercel.app/assets/logo-mark.png" />
   <meta property="og:site_name" content="Smart Island" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:url" content="https://smartisland.vercel.app/" />
-  <meta name="twitter:title" content="Smart Island v4.0.0 | Android Dynamic Notification Island" />
-  <meta name="twitter:description" content="A lightweight open-source Android app that transforms notifications, calls, navigation guidance, and media playback into a floating, glanceable island near the status bar." />
+  <meta name="twitter:title" content="Smart Island v4.0.0 | Dynamic Android Notification Overlay" />
+  <meta name="twitter:description"
+    content="A lightweight open-source Android app that transforms notifications, calls, navigation guidance, and media playback into a floating, glanceable island near the status bar." />
   <meta name="twitter:image" content="https://smartisland.vercel.app/assets/logo-mark.png" />
 
   <!-- Favicons & Preconnect -->
   <link rel="icon" href="assets/logo-mark.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://github.com" />
   <link rel="stylesheet" href="styles.css" />
 
@@ -63,337 +68,759 @@
 </head>
 
 <body>
-  <header class="site-header" data-header>
-    <a class="brand" href="#top" aria-label="Smart Island home">
-      <img src="assets/logo-mark.png" alt="Smart Island Logo" />
-      <span>Smart Island</span>
-      <span class="version-badge">v4.0.0</span>
-    </a>
-    <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" data-nav-toggle>
-      <span></span>
-      <span></span>
-    </button>
-    <nav class="nav" data-nav>
-      <a href="#whats-new">What's New</a>
-      <a href="#screenshots">Screenshots</a>
-      <a href="#features">Features</a>
-      <a href="#privacy">Privacy</a>
-      <a href="#setup">Setup</a>
-      <a href="#docs">Docs</a>
-    </nav>
+  <!-- Sticky Header -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a class="brand" href="#top" aria-label="Smart Island home">
+        <img src="assets/logo-mark.png" alt="Smart Island Logo" />
+        <span class="brand-name">Smart Island</span>
+        <span class="version-pill">v4.0.0</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false"
+        data-nav-toggle>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <nav class="nav" data-nav>
+        <a href="#whats-new">What's New</a>
+        <a href="#screenshots">Screenshots</a>
+        <a href="#features">Features</a>
+        <a href="#setup">Setup</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#docs">Docs</a>
+        <div class="nav-mobile-actions">
+          <a class="header-btn primary" href="https://github.com/agupta07505/SmartIsland/releases/latest">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            <span>Download APK</span>
+          </a>
+        </div>
+      </nav>
+
+      <div class="header-actions">
+        <a class="header-btn secondary" href="https://github.com/agupta07505/SmartIsland" target="_blank"
+          rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+          </svg>
+          <span>GitHub</span>
+        </a>
+        <a class="header-btn primary" href="https://github.com/agupta07505/SmartIsland/releases/latest">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+            <polyline points="7 10 12 15 17 10" />
+            <line x1="12" y1="15" x2="12" y2="3" />
+          </svg>
+          <!-- <span>Download APK</span> -->
+        </a>
+      </div>
+    </div>
   </header>
 
   <main id="top">
+    <!-- Hero Section -->
     <section class="hero section">
-      <div class="hero-copy">
-        <p class="eyebrow"><span class="badge-new">v4.0.0 Released</span> Open-source Android overlay</p>
-        <h1>Smart Island</h1>
-        <p class="hero-text">
-          A lightweight Android app that transforms notifications, calls, navigation guidance, and media playback into a floating,
-          glanceable island near the status bar.
-        </p>
-        <div class="hero-actions" aria-label="Primary actions">
-          <a class="button primary" href="https://github.com/agupta07505/SmartIsland/releases/latest">Download APK (v4.0.0)</a>
-          <a class="button secondary" href="https://github.com/agupta07505/SmartIsland">View Source</a>
-        </div>
-        <dl class="hero-stats" aria-label="Project highlights">
-          <div>
-            <dt>Android</dt>
-            <dd>8.0+</dd>
+      <div class="container hero-container">
+        <div class="hero-copy">
+          <div class="hero-badges">
+            <span class="badge highlight">
+              <span class="badge-dot"></span> v4.0.0 Released
+            </span>
+            <span class="badge" id="hero-downloads-badge">
+              2.3K+ Downloads
+            </span>
           </div>
-          <div>
-            <dt>Version</dt>
-            <dd>4.0.0</dd>
+
+          <h1>Smart Notifications. <br /><span class="gradient-text">Glanceable Island.</span></h1>
+
+          <p class="hero-text">
+            A lightweight open-source Android overlay that transforms notifications, live calls, turn-by-turn navigation
+            guidance, and media playback into a floating, glanceable island near your status bar.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn-hero primary" href="https://github.com/agupta07505/SmartIsland/releases/latest">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              <span>Download APK (v4.0.0)</span>
+            </a>
+            <a class="btn-hero secondary" href="https://github.com/agupta07505/SmartIsland" target="_blank"
+              rel="noopener">
+              <span>View Source Code</span>
+            </a>
           </div>
-          <div>
-            <dt>License</dt>
-            <dd>GPLv3</dd>
+
+          <div class="stats-banner">
+            <div class="stat-item">
+              <div class="stat-number" id="stat-downloads-count">2,350+</div>
+              <div class="stat-label">Total Downloads</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">v4.0.0</div>
+              <div class="stat-label">Latest Version</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">GPLv3</div>
+              <div class="stat-label">Open Source</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">8.0+</div>
+              <div class="stat-label">Android OS</div>
+            </div>
           </div>
-        </dl>
-      </div>
-      <div class="showcase" aria-label="Smart Island screenshots">
-        <div class="phone phone-main">
-          <img src="assets/screenshots/SmartIslandNavigation.jpg"
-            alt="Smart Island expanded Google Maps navigation card overlay with turn arrows and distance indicator" />
         </div>
-        <div class="phone phone-side top">
-          <img src="assets/screenshots/Customizations.jpg" alt="Smart Island theme color customization options screen" />
-        </div>
-        <div class="phone phone-side bottom">
-          <img src="assets/screenshots/SmartIslandMusic.jpg" alt="Smart Island expanded media notification overlay with wavy seek bar" />
+
+        <div class="hero-showcase">
+          <div class="hero-phone-container">
+            <div class="phone-frame hero-phone">
+              <div class="phone-screen">
+                <img src="assets/screenshots/SmartIslandMusic.jpg"
+                  alt="Smart Island expanded media player notification card overlay" />
+              </div>
+            </div>
+
+            <!-- Floating feature pills -->
+            <div class="floating-pill pill-top">
+              <span class="pill-icon">🎵</span>
+              <div class="pill-text">
+                <strong>Wavy Music Player</strong>
+                <span>Seek & Visualizer</span>
+              </div>
+            </div>
+
+            <div class="floating-pill pill-bottom">
+              <span class="pill-icon">🗺️</span>
+              <div class="pill-text">
+                <strong>Maps Guidance</strong>
+                <span>Turn-by-turn alerts</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section strip" aria-label="Technical stack">
-      <span>Kotlin</span>
-      <span>Jetpack Compose</span>
-      <span>Material 3</span>
-      <span>DataStore</span>
-      <span>Shizuku 1-Tap</span>
-      <span>Full Theme Customization</span>
-      <span>Maps Navigation</span>
-      <span>System Shade Suppression</span>
-      <span>System Service Recovery</span>
-    </section>
+    <!-- Tech Stack Strip -->
+    <div class="tech-strip">
+      <div class="container">
+        <div class="tech-pills">
+          <span class="tech-pill">Kotlin</span>
+          <span class="tech-pill">Jetpack Compose</span>
+          <span class="tech-pill">Material Design 3</span>
+          <span class="tech-pill">Shizuku 1-Tap Setup</span>
+          <span class="tech-pill">Full Theme Customizations</span>
+          <span class="tech-pill">System Shade Suppression</span>
+          <span class="tech-pill">Zero Internet Permission</span>
+        </div>
+      </div>
+    </div>
 
-    <!-- What's New in v4.0.0 Release Highlights Section -->
-    <section class="section whats-new" id="whats-new">
+    <!-- What's New Section -->
+    <section class="section container" id="whats-new">
       <div class="section-head">
-        <div>
-          <p class="eyebrow">Release Highlights</p>
-          <h2>What's New in Version 4.0.0 ✨</h2>
-        </div>
+        <p class="eyebrow">Release Highlights</p>
+        <h2>What's New in Version 4.0.0 ✨</h2>
+        <p class="subtitle">Built with enhanced customization, Shizuku setup, and refined notification stability.</p>
       </div>
+
       <div class="whats-new-grid">
-        <div class="whats-new-card">
-          <div class="card-icon">🎨</div>
-          <h3>Full Theme Customizations (Collapsed & Expanded)</h3>
-          <p>Customize colors for Battery, Notification Dot, Music Visualizer, Hotspot, Incoming Call, Live Activity, Transfers & Downloads, and Navigation. Dynamically modifies both collapsed pill glyphs and expanded view cards in real-time.</p>
+        <div class="feature-card">
+          <div class="card-icon-box">🎨</div>
+          <h3>Full Theme Customizations</h3>
+          <p>Customize colors for Battery, Notification Dot, Music Visualizer, Hotspot, Calls, Live Activities, and
+            Navigation in real-time.</p>
         </div>
-        <div class="whats-new-card">
-          <div class="card-icon">🗺️</div>
+        <div class="feature-card">
+          <div class="card-icon-box">🗺️</div>
           <h3>Dedicated Maps & Navigation Color</h3>
-          <p>Separate color customization setting for turn direction arrows, maneuver step badges, turn icon rings, and distance indicators for Google Maps and turn-by-turn guidance.</p>
+          <p>Separate color themes for turn direction arrows, maneuver step badges, turn rings, and distance indicators
+            for Google Maps.</p>
         </div>
-        <div class="whats-new-card">
-          <div class="card-icon">⚡</div>
-          <h3>Shizuku 1-Tap Auto-Grant & Setup</h3>
-          <p>Grant Accessibility Service, Notification Access, Battery Optimization, System Overlay, and OEM Autostart with a single tap using Shizuku.</p>
-        </div>
-        <div class="whats-new-card">
-          <div class="card-icon">📥</div>
-          <h3>Sticky Download Auto-Dismissal</h3>
-          <p>Download notifications automatically dismiss 3.5s after hitting 100% completion and suppress system shade duplicates safely with a 1.5s suppression window.</p>
-        </div>
-        <div class="whats-new-card">
-          <div class="card-icon">🔔</div>
-          <h3>Notification Stack & De-duplication Fix</h3>
-          <p>Eliminated side bracket visual stack artifacts ("2 half notifications") and added stale notification reconciliation for active system shade state syncing.</p>
-        </div>
-        <div class="whats-new-card">
-          <div class="card-icon">🛡️</div>
-          <h3>OEM Autostart & Status Badges</h3>
-          <p>Enhanced status badges and direct toggle handling for Xiaomi/MIUI, OPPO/Realme, Vivo, and Samsung OEM autostart settings.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section screenshots" id="screenshots">
-      <div class="section-head">
-        <div>
-          <p class="eyebrow">Screenshots</p>
-          <h2>Every state stays readable at a glance.</h2>
-        </div>
-      </div>
-      <div class="screenshot-grid">
-        <figure class="lightbox-trigger" data-img="assets/screenshots/SmartIslandNavigation.jpg">
-          <img src="assets/screenshots/SmartIslandNavigation.jpg" alt="Smart Island expanded Google Maps navigation card" />
-          <figcaption>Maps & Navigation Card</figcaption>
-        </figure>
-        <figure class="lightbox-trigger" data-img="assets/screenshots/Customizations.jpg">
-          <img src="assets/screenshots/Customizations.jpg" alt="Smart Island feature theme color customization cards" />
-          <figcaption>Theme Color Customizations</figcaption>
-        </figure>
-        <figure class="lightbox-trigger" data-img="assets/screenshots/Home.jpg">
-          <img src="assets/screenshots/Home.jpg" alt="Smart Island home screen dashboard with quick test controls" />
-          <figcaption>Home Dashboard</figcaption>
-        </figure>
-        <figure class="lightbox-trigger" data-img="assets/screenshots/Settings.jpg">
-          <img src="assets/screenshots/Settings.jpg" alt="Redesigned settings hub layout" />
-          <figcaption>Settings Hub</figcaption>
-        </figure>
-        <figure class="lightbox-trigger" data-img="assets/screenshots/Permissions.jpg">
-          <img src="assets/screenshots/Permissions.jpg"
-            alt="Smart Island permissions setup screen with Shizuku 1-tap grant" />
-          <figcaption>Permissions & Shizuku Setup</figcaption>
-        </figure>
-        <figure class="lightbox-trigger" data-img="assets/screenshots/NotificationsPrivacy.jpg">
-          <img src="assets/screenshots/NotificationsPrivacy.jpg"
-            alt="Notifications and privacy controls for lock screen and notification shade" />
-          <figcaption>Notifications & Privacy</figcaption>
-        </figure>
-        <figure class="lightbox-trigger" data-img="assets/screenshots/AppShortcuts.jpg">
-          <img src="assets/screenshots/AppShortcuts.jpg" alt="Smart Island application shortcuts launcher selection grid" />
-          <figcaption>App Shortcuts Launcher</figcaption>
-        </figure>
-        <figure class="lightbox-trigger" data-img="assets/screenshots/Gestures.jpg">
-          <img src="assets/screenshots/Gestures.jpg" alt="Smart Island interactive gesture guide and tutorial" />
-          <figcaption>Interactive Gesture Guide</figcaption>
-        </figure>
-        <figure class="lightbox-trigger" data-img="assets/screenshots/SmartIslandMusic.jpg">
-          <img src="assets/screenshots/SmartIslandMusic.jpg"
-            alt="Smart Island expanded media notification overlay with wavy music seek bar" />
-          <figcaption>Wavy Music Player</figcaption>
-        </figure>
-        <figure class="lightbox-trigger" data-img="assets/screenshots/SmartIslandBattery.jpg">
-          <img src="assets/screenshots/SmartIslandBattery.jpg" alt="Battery charging overlay and custom color picker" />
-          <figcaption>Battery Charging Overlay</figcaption>
-        </figure>
-        <figure class="lightbox-trigger" data-img="assets/screenshots/Welcome.jpg">
-          <img src="assets/screenshots/Welcome.jpg" alt="Smart Island first-run welcome dialog" />
-          <figcaption>Welcome Experience</figcaption>
-        </figure>
-        <figure class="lightbox-trigger" data-img="assets/screenshots/Positions.jpg">
-          <img src="assets/screenshots/Positions.jpg" alt="Position and size sliders screen" />
-          <figcaption>Position & Sizing Controls</figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <section class="section split" id="features">
-      <div>
-        <p class="eyebrow">What it does</p>
-        <h2>Notifications that stay useful without taking over your screen.</h2>
-      </div>
-      <div class="feature-grid">
-        <article>
-          <h3>Floating overlay</h3>
-          <p>Draws a compact, custom overlay above other apps using native Android window manager APIs.</p>
-        </article>
-        <article>
-          <h3>Full Theme Customization</h3>
-          <p>Customize colors for Battery, Notification Dot, Music, Hotspot, Calls, Live Activity, Transfers, and Navigation.</p>
-        </article>
-        <article>
-          <h3>Maps & Navigation guidance</h3>
-          <p>Real-time turn-by-turn direction guidance with maneuver arrows, distance, ETA, and custom navigation color.</p>
-        </article>
-        <article>
+        <div class="feature-card">
+          <div class="card-icon-box">⚡</div>
           <h3>Shizuku 1-Tap Setup</h3>
-          <p>Grant Accessibility, Notification Access, System Overlay, Usage Access, and Battery Whitelist in one tap.</p>
-        </article>
-        <article>
-          <h3>System Service Recovery</h3>
-          <p>Automatic background recovery engine to maintain continuous system service connections.</p>
-        </article>
-        <article>
-          <h3>Notification Suppression</h3>
-          <p>Converts active notifications into glanceable cards while suppressing system shade duplicate alerts.</p>
-        </article>
-        <article>
-          <h3>Download/Upload Progress</h3>
-          <p>Real-time file transfer progress bars with transfer speeds, custom transfer colors, and 3.5s auto-dismissal.</p>
-        </article>
-        <article>
-          <h3>Landscape Auto-Hide</h3>
-          <p>Automatically detects device orientation to temporarily hide overlay during full-screen games and video streaming.</p>
-        </article>
-        <article>
-          <h3>Wavy music seek bar</h3>
-          <p>Renders playing progress as an organic, animated wave with circular thumb drag-to-seek support.</p>
-        </article>
-        <article>
-          <h3>App Shortcuts Launcher</h3>
-          <p>Configure up to eight favorite apps for instant 1-tap launch directly from the expanded island.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section privacy-band" id="privacy">
-      <div>
-        <p class="eyebrow">Local first</p>
-        <h2>Built around transparent permissions.</h2>
-        <p>
-          Smart Island processes notification data on the device, stores preferences locally, and currently does not
-          request the Android <code>INTERNET</code> permission.
-        </p>
-      </div>
-      <div class="permission-list">
-        <div>
-          <span>SYSTEM_ALERT_WINDOW</span>
-          <p>Displays the floating island above other apps.</p>
+          <p>Grant Accessibility, Notification Access, Battery Optimization, and Overlay permissions automatically with
+            a single tap.</p>
         </div>
-        <div>
-          <span>BIND_NOTIFICATION_LISTENER_SERVICE</span>
-          <p>Reads notification metadata for notification, call, and media states.</p>
+        <div class="feature-card">
+          <div class="card-icon-box">📥</div>
+          <h3>Sticky Download Auto-Dismissal</h3>
+          <p>Download notifications dismiss automatically 3.5s after 100% completion while safely suppressing duplicate
+            system shade alerts.</p>
         </div>
-        <div>
-          <span>FOREGROUND_SERVICE</span>
-          <p>Keeps the overlay active while Smart Island is enabled.</p>
+        <div class="feature-card">
+          <div class="card-icon-box">🔔</div>
+          <h3>Notification De-duplication</h3>
+          <p>Eliminated side bracket visual stack artifacts and added stale notification reconciliation for active
+            system shade state syncing.</p>
         </div>
-        <div>
-          <span>ACCESS_RESTRICTED_SETTINGS</span>
-          <p>Allows Shizuku 1-tap permission management on Android 13+ devices.</p>
+        <div class="feature-card">
+          <div class="card-icon-box">🛡️</div>
+          <h3>OEM Autostart & Status Badges</h3>
+          <p>Enhanced status badges and direct toggle handling for Xiaomi/MIUI, OPPO/Realme, Vivo, and Samsung OEM
+            autostart settings.</p>
         </div>
       </div>
     </section>
 
-    <section class="section setup" id="setup">
+    <!-- 3D Carousel Screenshot Showcase Section -->
+    <section class="section container screenshots-section" id="screenshots">
       <div class="section-head">
-        <p class="eyebrow">Getting started</p>
-        <h2>Install, grant, enable.</h2>
+        <p class="eyebrow">Interface Showcase</p>
+        <h2>Every state designed for instant clarity.</h2>
+        <p class="subtitle">Use navigation controls, swipe, or click any card to inspect unclipped high-res app
+          screenshots in 3D perspective view.</p>
+
+        <!-- Category Filter Tabs -->
+        <div class="filter-tabs">
+          <button class="filter-tab active" data-filter="all">All Screenshots</button>
+          <button class="filter-tab" data-filter="overlay">Island Overlays</button>
+          <button class="filter-tab" data-filter="customization">Customization</button>
+          <button class="filter-tab" data-filter="system">System & Setup</button>
+        </div>
       </div>
-      <ol class="steps">
-        <li>
-          <span>01</span>
-          <h3>Download the APK</h3>
-          <p>Install the latest signed v4.0.0 package from GitHub Releases.</p>
-        </li>
-        <li>
-          <span>02</span>
-          <h3>Grant overlay permission</h3>
-          <p>Allow Smart Island to draw the island above other apps (or use 1-Tap Shizuku setup).</p>
-        </li>
-        <li>
-          <span>03</span>
-          <h3>Enable notification access</h3>
-          <p>Turn on listener access so notifications can become island cards.</p>
-        </li>
-        <li>
-          <span>04</span>
-          <h3>Disable battery optimization</h3>
-          <p>Set Smart Island to 'No restrictions' so Android keeps the overlay service running.</p>
-        </li>
-      </ol>
+
+      <!-- 3D Coverflow Carousel Stage -->
+      <div class="coverflow-stage">
+        <button class="coverflow-btn prev" id="carousel-prev" aria-label="Previous screenshot">
+          <svg viewBox="0 0 24 24">
+            <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+              stroke-linejoin="round" fill="none" />
+          </svg>
+        </button>
+
+        <div class="coverflow-track" id="carousel-track">
+          <!-- Card 1: Wavy Music Player (Default First Screenshot) -->
+          <div class="coverflow-card lightbox-trigger" data-index="0" data-category="overlay"
+            data-title="Wavy Music Player" data-tag="Media Control" data-tag-class=""
+            data-desc="Organic wave visualizer with drag-to-seek progress bar, track artwork, and playback controls."
+            data-img="assets/screenshots/SmartIslandMusic.jpg">
+            <div class="phone-frame">
+              <div class="phone-screen">
+                <img src="assets/screenshots/SmartIslandMusic.jpg" alt="Expanded Media Overlay with Wavy Seek Bar" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Maps & Navigation -->
+          <div class="coverflow-card lightbox-trigger" data-index="1" data-category="overlay"
+            data-title="Turn Guidance Card" data-tag="Maps & Navigation" data-tag-class=""
+            data-desc="Maneuver step arrows, distance ETA, and custom turn colors for Google Maps."
+            data-img="assets/screenshots/SmartIslandNavigation.jpg">
+            <div class="phone-frame">
+              <div class="phone-screen">
+                <img src="assets/screenshots/SmartIslandNavigation.jpg" alt="Google Maps Turn Guidance Overlay" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Home Dashboard -->
+          <div class="coverflow-card lightbox-trigger" data-index="2" data-category="system" data-title="Home Dashboard"
+            data-tag="Dashboard" data-tag-class="font-sys"
+            data-desc="Master toggle, active state monitor, notification listener status, and quick test triggers."
+            data-img="assets/screenshots/Home.jpg">
+            <div class="phone-frame">
+              <div class="phone-screen">
+                <img src="assets/screenshots/Home.jpg" alt="Smart Island Home Screen Dashboard" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4: Theme Color Customization -->
+          <div class="coverflow-card lightbox-trigger" data-index="3" data-category="customization"
+            data-title="Full Color Customization" data-tag="Theming" data-tag-class="font-custom"
+            data-desc="Per-feature HSL color pickers for battery, music visualizer, navigation, hotspot, and calls."
+            data-img="assets/screenshots/Customizations.jpg">
+            <div class="phone-frame">
+              <div class="phone-screen">
+                <img src="assets/screenshots/Customizations.jpg" alt="Theme Color Customization Screen" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5: Battery Charging -->
+          <div class="coverflow-card lightbox-trigger" data-index="4" data-category="overlay"
+            data-title="Battery Charging Card" data-tag="Battery State" data-tag-class=""
+            data-desc="Live charging percentage, pulsing bolt indicator, time-remaining estimate, and custom color."
+            data-img="assets/screenshots/SmartIslandBattery.jpg">
+            <div class="phone-frame">
+              <div class="phone-screen">
+                <img src="assets/screenshots/SmartIslandBattery.jpg" alt="Battery Charging Overlay and Color Picker" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 6: Position & Sizing -->
+          <div class="coverflow-card lightbox-trigger" data-index="5" data-category="customization"
+            data-title="Position & Sizing Controls" data-tag="Layout" data-tag-class="font-custom"
+            data-desc="Fine-tune island width, height, X/Y status bar offset, and corner radius sliders."
+            data-img="assets/screenshots/Positions.jpg">
+            <div class="phone-frame">
+              <div class="phone-screen">
+                <img src="assets/screenshots/Positions.jpg" alt="Position Sliders and Sizing Controls" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 7: Permissions & Shizuku -->
+          <div class="coverflow-card lightbox-trigger" data-index="6" data-category="system"
+            data-title="Permissions & Shizuku Setup" data-tag="Setup" data-tag-class="font-sys"
+            data-desc="Shizuku 1-tap automated permission manager for Accessibility, Notification Access, and Overlay."
+            data-img="assets/screenshots/Permissions.jpg">
+            <div class="phone-frame">
+              <div class="phone-screen">
+                <img src="assets/screenshots/Permissions.jpg" alt="Permissions setup screen with Shizuku setup" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 8: Download Progress -->
+          <div class="coverflow-card lightbox-trigger" data-index="7" data-category="overlay"
+            data-title="File Transfer Progress" data-tag="File Transfer" data-tag-class=""
+            data-desc="Real-time file download speed (MB/s), completion progress bar, and 3.5s auto-dismissal."
+            data-img="assets/screenshots/SmartIslandDownload.jpg">
+            <div class="phone-frame">
+              <div class="phone-screen">
+                <img src="assets/screenshots/SmartIslandDownload.jpg" alt="File Transfer Download Progress Overlay" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 9: Settings Hub -->
+          <div class="coverflow-card lightbox-trigger" data-index="8" data-category="system" data-title="Settings Hub"
+            data-tag="Settings" data-tag-class="font-sys"
+            data-desc="Clean organized toggles for behavior, notification shade suppression, lock screen, and autostart."
+            data-img="assets/screenshots/Settings.jpg">
+            <div class="phone-frame">
+              <div class="phone-screen">
+                <img src="assets/screenshots/Settings.jpg" alt="Settings Hub Layout" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 10: App Shortcuts Grid -->
+          <div class="coverflow-card lightbox-trigger" data-index="9" data-category="customization"
+            data-title="App Shortcuts Launcher" data-tag="Shortcuts" data-tag-class="font-custom"
+            data-desc="Configure up to 8 favorite apps for instant 1-tap launch directly from the empty island."
+            data-img="assets/screenshots/AppShortcuts.jpg">
+            <div class="phone-frame">
+              <div class="phone-screen">
+                <img src="assets/screenshots/AppShortcuts.jpg" alt="App Shortcuts Launcher Grid Selection" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 11: Interactive Gestures -->
+          <div class="coverflow-card lightbox-trigger" data-index="10" data-category="customization"
+            data-title="Interactive Gesture Guide" data-tag="Gestures" data-tag-class="font-custom"
+            data-desc="Interactive playground demonstrating tap, double tap, and horizontal swipe pagination."
+            data-img="assets/screenshots/Gestures.jpg">
+            <div class="phone-frame">
+              <div class="phone-screen">
+                <img src="assets/screenshots/Gestures.jpg" alt="Interactive Gesture Guide and Tutorial" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 12: Hotspot Tethering -->
+          <div class="coverflow-card lightbox-trigger" data-index="11" data-category="overlay"
+            data-title="Active Hotspot Indicator" data-tag="Live Activity" data-tag-class=""
+            data-desc="Monitors tethering status, connected device count, hotspot SSID, and quick disable action."
+            data-img="assets/screenshots/SmartIslandHotspot.jpg">
+            <div class="phone-frame">
+              <div class="phone-screen">
+                <img src="assets/screenshots/SmartIslandHotspot.jpg" alt="Active Hotspot Overlay Indicator" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button class="coverflow-btn next" id="carousel-next" aria-label="Next screenshot">
+          <svg viewBox="0 0 24 24">
+            <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+              stroke-linejoin="round" fill="none" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Carousel Active Card Info Footer -->
+      <div class="coverflow-caption-box">
+        <span class="phone-tag" id="carousel-tag">Media Control</span>
+        <h3 id="carousel-title">Wavy Music Player</h3>
+        <p id="carousel-desc">Organic wave visualizer with drag-to-seek progress bar, track artwork, and playback
+          controls.</p>
+
+        <div class="carousel-dots" id="carousel-dots">
+          <!-- Dynamic pagination dots rendered in JS -->
+        </div>
+      </div>
     </section>
 
-    <section class="section docs" id="docs">
-      <div>
-        <p class="eyebrow">Open source</p>
-        <h2>Designed to be inspected, built, and improved.</h2>
-        <p>
-          The repository includes the Android source, release notes, privacy policy, contribution guide, and security
-          reporting process.
-        </p>
+    <!-- Comprehensive Capabilities & Features Matrix Grid -->
+    <section class="section container" id="features">
+      <div class="section-head">
+        <p class="eyebrow">Capabilities Matrix</p>
+        <h2>Everything Smart Island can do.</h2>
+        <p class="subtitle">Complete breakdown of all native Android features, services, and local privacy engine.</p>
       </div>
-      <div class="doc-links">
-        <a href="https://github.com/agupta07505/SmartIsland/blob/main/README.md" target="_blank" rel="noopener">README</a>
-        <a href="https://github.com/agupta07505/SmartIsland/blob/main/CHANGELOG.md" target="_blank" rel="noopener">Changelog</a>
-        <a href="https://github.com/agupta07505/SmartIsland/blob/main/PRIVACY.md" target="_blank" rel="noopener">Privacy Policy</a>
-        <a href="https://github.com/agupta07505/SmartIsland/blob/main/TERMS.md" target="_blank" rel="noopener">Terms</a>
-        <a href="https://github.com/agupta07505/SmartIsland/issues/new/choose" target="_blank" rel="noopener">Report or Request</a>
-        <a href="https://telegram.me/SmartIslandApp" target="_blank" rel="noopener">Telegram Community</a>
+
+      <div class="features-matrix">
+        <div class="matrix-item">
+          <div class="matrix-icon-box">🪟</div>
+          <div class="matrix-content">
+            <h3>Floating System Overlay</h3>
+            <p>Draws a compact, custom overlay above other apps using native Android WindowManager APIs without blocking
+              touch inputs.</p>
+          </div>
+        </div>
+
+        <div class="matrix-item">
+          <div class="matrix-icon-box">🗺️</div>
+          <div class="matrix-content">
+            <h3>Turn-by-Turn Navigation</h3>
+            <p>Real-time maneuver guidance with turn direction arrows, step distance, ETA metrics, and dedicated
+              navigation color picks.</p>
+          </div>
+        </div>
+
+        <div class="matrix-item">
+          <div class="matrix-icon-box">🎵</div>
+          <div class="matrix-content">
+            <h3>Wavy Music Visualizer</h3>
+            <p>Renders current playing media progress as an organic, animated wave with circular thumb drag-to-seek
+              playback support.</p>
+          </div>
+        </div>
+
+        <div class="matrix-item">
+          <div class="matrix-icon-box">📡</div>
+          <div class="matrix-content">
+            <h3>Wi-Fi Hotspot Monitor</h3>
+            <p>Monitors tethering status, shows active client count, SSID, data usage indicators, and quick 1-tap
+              disable action.</p>
+          </div>
+        </div>
+
+        <div class="matrix-item">
+          <div class="matrix-icon-box">📦</div>
+          <div class="matrix-content">
+            <h3>Live Activity Tracking</h3>
+            <p>Delivery and ride-share tracking cards via <code>LiveActivityParser</code> with dynamic per-app brand
+              colors and real-time status.</p>
+          </div>
+        </div>
+
+        <div class="matrix-item">
+          <div class="matrix-icon-box">⚡</div>
+          <div class="matrix-content">
+            <h3>Shizuku 1-Tap Setup</h3>
+            <p>Grant Accessibility, Notification Access, System Overlay, Usage Access, and Battery Whitelist
+              automatically in one tap.</p>
+          </div>
+        </div>
+
+        <div class="matrix-item">
+          <div class="matrix-icon-box">📥</div>
+          <div class="matrix-content">
+            <h3>File Transfer Speeds</h3>
+            <p>Real-time download and upload progress bars with transfer speeds (MB/s), file names, and 3.5s
+              auto-dismissal on completion.</p>
+          </div>
+        </div>
+
+        <div class="matrix-item">
+          <div class="matrix-icon-box">🎨</div>
+          <div class="matrix-content">
+            <h3>Full Theme Customization</h3>
+            <p>Per-feature HSL color pickers for Battery, Notification Dot, Music Visualizer, Hotspot, Calls, Transfers,
+              and Navigation.</p>
+          </div>
+        </div>
+
+        <div class="matrix-item">
+          <div class="matrix-icon-box">📱</div>
+          <div class="matrix-content">
+            <h3>Landscape Auto-Hide</h3>
+            <p>Automatically detects device orientation to temporarily hide overlay during full-screen games and video
+              streaming.</p>
+          </div>
+        </div>
+
+        <div class="matrix-item">
+          <div class="matrix-icon-box">🔔</div>
+          <div class="matrix-content">
+            <h3>System Shade Suppression</h3>
+            <p>Converts active notifications into glanceable cards while suppressing duplicate system shade alerts
+              safely.</p>
+          </div>
+        </div>
+
+        <div class="matrix-item">
+          <div class="matrix-icon-box">🚀</div>
+          <div class="matrix-content">
+            <h3>App Shortcuts Launcher</h3>
+            <p>Configure up to eight favorite apps for instant 1-tap launch directly from the empty expanded island.</p>
+          </div>
+        </div>
+
+        <div class="matrix-item">
+          <div class="matrix-icon-box">🔒</div>
+          <div class="matrix-content">
+            <h3>Lock Screen Privacy</h3>
+            <p>Opt-in support for displaying island status on the lock screen with optional sensitive notification
+              content hiding.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Setup Guide -->
+    <section class="section container" id="setup">
+      <div class="section-head">
+        <p class="eyebrow">Getting Started</p>
+        <h2>4 simple steps to install.</h2>
+        <p class="subtitle">Get Smart Island up and running in under 2 minutes.</p>
+      </div>
+
+      <div class="steps-pipeline">
+        <div class="step-card">
+          <div class="step-number">01</div>
+          <h3>Download APK</h3>
+          <p>Download the latest signed v4.0.0 release package directly from GitHub Releases.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">02</div>
+          <h3>Grant Overlay & Accessibility</h3>
+          <p>Allow Smart Island to draw above apps and bind accessibility service (or use 1-Tap Shizuku setup).</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">03</div>
+          <h3>Notification Access</h3>
+          <p>Enable notification listener service access so incoming notifications become glanceable cards.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">04</div>
+          <h3>Battery Whitelist</h3>
+          <p>Set Smart Island battery optimization to 'No restrictions' for persistent background performance.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comprehensive Permissions & Privacy Section -->
+    <section class="section container" id="privacy">
+      <div class="section-head">
+        <p class="eyebrow">Security & Permissions</p>
+        <h2>Transparent on-device processing.</h2>
+        <p class="subtitle">Smart Island requires specific Android system permissions to draw overlays and process
+          notifications locally with zero data transmission.</p>
+      </div>
+
+      <div class="privacy-band">
+        <div class="privacy-copy">
+          <span class="badge highlight" style="margin-bottom: 1rem;"><span class="badge-dot"></span> 100% On-Device &
+            Private</span>
+          <h2>Built without INTERNET permission.</h2>
+          <p>
+            Smart Island does not request the Android <code>INTERNET</code> permission in its manifest, contains zero
+            analytics or crash reporting SDKs, and processes all notification metadata locally on your device.
+          </p>
+
+          <div class="privacy-summary-box">
+            <h4>Information Processed Locally:</h4>
+            <ul>
+              <li>App name, package ID, title & notification text</li>
+              <li>Album artwork, track playback state & seek progress</li>
+              <li>Incoming call categories & active hotspot device counts</li>
+              <li>DataStore Preferences for user customization options</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="privacy-permissions-grid">
+          <div class="permission-card">
+            <div class="perm-header">
+              <code>SYSTEM_ALERT_WINDOW</code>
+              <span class="perm-tag">Overlay</span>
+            </div>
+            <h4>Floating Overlay Window</h4>
+            <p>Draws the animated pill overlay above other apps using Android WindowManager APIs.</p>
+          </div>
+
+          <div class="permission-card">
+            <div class="perm-header">
+              <code>BIND_NOTIFICATION_LISTENER</code>
+              <span class="perm-tag">Notifications</span>
+            </div>
+            <h4>Notification Listener Access</h4>
+            <p>Reads active notification title, text, artwork, and call/media states to create glanceable cards.</p>
+          </div>
+
+          <div class="permission-card">
+            <div class="perm-header">
+              <code>BIND_ACCESSIBILITY_SERVICE</code>
+              <span class="perm-tag">System Service</span>
+            </div>
+            <h4>Accessibility Overlay Service</h4>
+            <p>Maintains persistent island rendering across all app transitions and lock screen states.</p>
+          </div>
+
+          <div class="permission-card">
+            <div class="perm-header">
+              <code>FOREGROUND_SERVICE_SPECIAL_USE</code>
+              <span class="perm-tag font-sys">Foreground Engine</span>
+            </div>
+            <h4>Special Use Foreground Service</h4>
+            <p>Prevents Android OS from killing the overlay service during low memory conditions.</p>
+          </div>
+
+          <div class="permission-card">
+            <div class="perm-header">
+              <code>REQUEST_IGNORE_BATTERY_OPTIMIZATIONS</code>
+              <span class="perm-tag font-custom">Battery Whitelist</span>
+            </div>
+            <h4>No Battery Restrictions</h4>
+            <p>Ensures background OEM battery managers (Xiaomi, Samsung, Oppo) do not kill island processes.</p>
+          </div>
+
+          <div class="permission-card">
+            <div class="perm-header">
+              <code>PACKAGE_USAGE_STATS</code>
+              <span class="perm-tag">Auto-Hide</span>
+            </div>
+            <h4>Usage Access</h4>
+            <p>Detects full-screen landscape apps to auto-hide the island during gaming and video playback.</p>
+          </div>
+
+          <div class="permission-card">
+            <div class="perm-header">
+              <code>moe.shizuku.manager.permission.API_V23</code>
+              <span class="perm-tag font-custom">Shizuku 1-Tap</span>
+            </div>
+            <h4>Shizuku 1-Tap Permission Manager</h4>
+            <p>Allows 1-tap automated setup for Android 13+ devices without requiring ADB terminal commands.</p>
+          </div>
+
+          <div class="permission-card">
+            <div class="perm-header">
+              <code>RECEIVE_BOOT_COMPLETED</code>
+              <span class="perm-tag font-sys">Autostart</span>
+            </div>
+            <h4>Autostart Receiver</h4>
+            <p>Restores your overlay preference and service automatically when your Android device reboots.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Documentation & Links -->
+    <section class="section container" id="docs">
+      <div class="section-head">
+        <p class="eyebrow">Open Source</p>
+        <h2>Designed to be transparent & community driven.</h2>
+      </div>
+
+      <div class="docs-grid">
+        <a class="doc-card" href="https://github.com/agupta07505/SmartIsland/blob/main/README.md" target="_blank"
+          rel="noopener">
+          <span>Project README</span>
+          <svg viewBox="0 0 24 24">
+            <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </a>
+        <a class="doc-card" href="https://github.com/agupta07505/SmartIsland/blob/main/CHANGELOG.md" target="_blank"
+          rel="noopener">
+          <span>Changelog</span>
+          <svg viewBox="0 0 24 24">
+            <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </a>
+        <a class="doc-card" href="https://github.com/agupta07505/SmartIsland/blob/main/PRIVACY.md" target="_blank"
+          rel="noopener">
+          <span>Privacy Policy</span>
+          <svg viewBox="0 0 24 24">
+            <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </a>
+        <a class="doc-card" href="https://github.com/agupta07505/SmartIsland/blob/main/TERMS.md" target="_blank"
+          rel="noopener">
+          <span>Terms of Service</span>
+          <svg viewBox="0 0 24 24">
+            <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </a>
+        <a class="doc-card" href="https://github.com/agupta07505/SmartIsland/issues/new/choose" target="_blank"
+          rel="noopener">
+          <span>Report Issue or Request</span>
+          <svg viewBox="0 0 24 24">
+            <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </a>
+        <a class="doc-card" href="https://telegram.me/SmartIslandApp" target="_blank" rel="noopener">
+          <span>Telegram Community</span>
+          <svg viewBox="0 0 24 24">
+            <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </a>
       </div>
     </section>
   </main>
 
+  <!-- Footer -->
   <footer class="site-footer">
-    <span>Smart Island by Animesh Gupta © 2026</span>
-    <div class="footer-links">
-      <a href="mailto:agupta.07505@gmail.com">agupta.07505@gmail.com</a>
-      <div class="social-links">
-        <a href="https://github.com/agupta07505" target="_blank" rel="noopener" aria-label="GitHub">
-          <svg class="icon" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <img src="assets/logo-mark.png" alt="Smart Island" width="24" height="24" />
+        <span>Smart Island by Animesh Gupta © 2026</span>
+      </div>
+
+      <div class="footer-socials">
+        <a class="social-icon-btn" href="https://github.com/agupta07505" target="_blank" rel="noopener"
+          aria-label="GitHub">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+          </svg>
         </a>
-        <a href="https://linkedin.com/in/agupta07505" target="_blank" rel="noopener" aria-label="LinkedIn">
-          <svg class="icon" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+        <a class="social-icon-btn" href="https://linkedin.com/in/agupta07505" target="_blank" rel="noopener"
+          aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+          </svg>
         </a>
-        <a href="https://instagram.com/agupta07505" target="_blank" rel="noopener" aria-label="Instagram">
-          <svg class="icon" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-        </a>
-        <a href="https://t.me/agupta07505" target="_blank" rel="noopener" aria-label="Telegram">
-          <svg class="icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-1-.65-.35-1 .22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.54 3.69-.52.36-1 .53-1.42.52-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.24.35-.49.97-.74 3.79-1.65 6.32-2.73 7.57-3.26 3.6-1.5 4.35-1.76 4.84-1.77.11 0 .35.03.51.16.13.1.17.24.19.34.02.09.03.26.02.4z"/></svg>
+        <a class="social-icon-btn" href="https://t.me/agupta07505" target="_blank" rel="noopener" aria-label="Telegram">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-1-.65-.35-1 .22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.54 3.69-.52.36-1 .53-1.42.52-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.24.35-.49.97-.74 3.79-1.65 6.32-2.73 7.57-3.26 3.6-1.5 4.35-1.76 4.84-1.77.11 0 .35.03.51.16.13.1.17.24.19.34.02.09.03.26.02.4z" />
+          </svg>
         </a>
       </div>
     </div>
   </footer>
 
-  <!-- Lightbox Modal for Screenshots Zoom -->
+  <!-- Lightbox Modal -->
   <div class="lightbox" id="lightbox" aria-hidden="true">
     <div class="lightbox-content">
-      <button class="lightbox-close" id="lightbox-close" aria-label="Close image preview">&times;</button>
-      <img id="lightbox-img" src="" alt="Enlarged screenshot preview" />
+      <button class="lightbox-close" id="lightbox-close" aria-label="Close preview">&times;</button>
+      <div class="lightbox-phone-frame">
+        <img id="lightbox-img" src="" alt="Enlarged screenshot preview" />
+      </div>
       <div id="lightbox-caption" class="lightbox-caption"></div>
     </div>
   </div>

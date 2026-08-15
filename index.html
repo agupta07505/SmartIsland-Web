@@ -8,7 +8,7 @@
     content="Smart Island is a lightweight Android overlay that turns notifications, calls, navigation, and media playback into a floating glanceable island." />
   <meta name="author" content="Animesh Gupta" />
   <meta name="keywords"
-    content="Smart Island, Android overlay, Dynamic Island, Android notifications, Jetpack Compose, open source, notification cards, custom notification, Shizuku, theme customization, navigation overlay" />
+    content="Smart Island, Android overlay, Dynamic Island, Android notifications, Jetpack Compose, open source, notification cards, custom notification, Shizuku, theme customization, navigation overlay, battery saver, 5 gestures" />
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#06080d" />
   <title>Smart Island v5.0.0 | Dynamic Android Notification Overlay</title>
@@ -60,7 +60,7 @@
       "price": "0",
       "priceCurrency": "USD"
     },
-    "softwareVersion": "4.0.0",
+    "softwareVersion": "5.0.0",
     "license": "https://github.com/agupta07505/SmartIsland/blob/main/LICENSE",
     "codeRepository": "https://github.com/agupta07505/SmartIsland"
   }
@@ -87,6 +87,7 @@
       <nav class="nav" data-nav>
         <a href="#whats-new">What's New</a>
         <a href="#screenshots">Screenshots</a>
+        <a href="#gestures">5 Gestures</a>
         <a href="#features">Features</a>
         <a href="#setup">Setup</a>
         <a href="#privacy">Privacy</a>
@@ -98,7 +99,7 @@
               <polyline points="7 10 12 15 17 10" />
               <line x1="12" y1="15" x2="12" y2="3" />
             </svg>
-            <span>Download APK</span>
+            <span>Download APK (v5.0.0)</span>
           </a>
         </div>
       </nav>
@@ -118,7 +119,7 @@
             <polyline points="7 10 12 15 17 10" />
             <line x1="12" y1="15" x2="12" y2="3" />
           </svg>
-          <!-- <span>Download APK</span> -->
+          <span>Download APK</span>
         </a>
       </div>
     </div>
@@ -141,8 +142,7 @@
           <h1>Smart Notifications. <br /><span class="gradient-text">Glanceable Island.</span></h1>
 
           <p class="hero-text">
-            A lightweight open-source Android overlay that transforms notifications, live calls, turn-by-turn navigation
-            guidance, and media playback into a floating, glanceable island near your status bar.
+            A lightweight open-source Android overlay that transforms notifications, live activities, charging states, and media playback into a fluid, glanceable Dynamic Island.
           </p>
 
           <div class="hero-actions">
@@ -194,15 +194,15 @@
               <span class="pill-icon">🎵</span>
               <div class="pill-text">
                 <strong>Wavy Music Player</strong>
-                <span>Seek & Visualizer</span>
+                <span>Waveform & Controls</span>
               </div>
             </div>
 
             <div class="floating-pill pill-bottom">
-              <span class="pill-icon">🗺️</span>
+              <span class="pill-icon">🔋</span>
               <div class="pill-text">
-                <strong>Maps Guidance</strong>
-                <span>Turn-by-turn alerts</span>
+                <strong>Battery Saver Mode</strong>
+                <span>Live Percentage Badge</span>
               </div>
             </div>
           </div>
@@ -214,12 +214,12 @@
     <div class="tech-strip">
       <div class="container">
         <div class="tech-pills">
-          <span class="tech-pill">Kotlin</span>
+          <span class="tech-pill">Kotlin 2.0+</span>
           <span class="tech-pill">Jetpack Compose</span>
           <span class="tech-pill">Material Design 3</span>
+          <span class="tech-pill">5-Gesture Engine</span>
+          <span class="tech-pill">Full-Color App Icons</span>
           <span class="tech-pill">Shizuku 1-Tap Setup</span>
-          <span class="tech-pill">Full Theme Customizations</span>
-          <span class="tech-pill">System Shade Suppression</span>
           <span class="tech-pill">Zero Internet Permission</span>
         </div>
       </div>
@@ -230,45 +230,39 @@
       <div class="section-head">
         <p class="eyebrow">Release Highlights</p>
         <h2>What's New in Version 5.0.0 ✨</h2>
-        <p class="subtitle">Built with enhanced customization, Shizuku setup, and refined notification stability.</p>
+        <p class="subtitle">Power-efficient battery alerts, full-color launcher icons, 5-gesture engine, and flawless multitasking.</p>
       </div>
 
       <div class="whats-new-grid">
         <div class="feature-card">
+          <div class="card-icon-box">🔋</div>
+          <h3>Low Battery & Battery Saver</h3>
+          <p>Dedicated visual states: Pulsing red alert glyph for low battery (&le; 20%), warm amber for Battery Saver ON, and electric green charging with live percentage.</p>
+        </div>
+        <div class="feature-card">
+          <div class="card-icon-box">✨</div>
+          <h3>Full-Color App Launcher Icons</h3>
+          <p>Restored original, vibrant full-color application launcher icons (WhatsApp, Snapchat, Gmail, etc.) in both collapsed and expanded states.</p>
+        </div>
+        <div class="feature-card">
+          <div class="card-icon-box">🖐️</div>
+          <h3>5-Gesture Control Engine</h3>
+          <p>Complete gesture controls: Single Tap, Quick Swipe Up, Hold + Swipe Up (300ms haptic clear-all), Swipe Down (floating window), and Horizontal Swipe.</p>
+        </div>
+        <div class="feature-card">
+          <div class="card-icon-box">💬</div>
+          <h3>Message Sync Suppression</h3>
+          <p>Smart filtering detects chat sync polling notifications (Snapchat, WhatsApp) to prevent false download mode alerts.</p>
+        </div>
+        <div class="feature-card">
           <div class="card-icon-box">🎨</div>
-          <h3>Full Theme Customizations</h3>
-          <p>Customize colors for Battery, Notification Dot, Music Visualizer, Hotspot, Calls, Live Activities, and
-            Navigation in real-time.</p>
+          <h3>Custom RGB Color Studio</h3>
+          <p>Fine-grained Red, Green, Blue slider dialog with real-time Hex code previews for all 11 dynamic island modes.</p>
         </div>
         <div class="feature-card">
-          <div class="card-icon-box">🗺️</div>
-          <h3>Dedicated Maps & Navigation Color</h3>
-          <p>Separate color themes for turn direction arrows, maneuver step badges, turn rings, and distance indicators
-            for Google Maps.</p>
-        </div>
-        <div class="feature-card">
-          <div class="card-icon-box">⚡</div>
-          <h3>Shizuku 1-Tap Setup</h3>
-          <p>Grant Accessibility, Notification Access, Battery Optimization, and Overlay permissions automatically with
-            a single tap.</p>
-        </div>
-        <div class="feature-card">
-          <div class="card-icon-box">📥</div>
-          <h3>Sticky Download Auto-Dismissal</h3>
-          <p>Download notifications dismiss automatically 3.5s after 100% completion while safely suppressing duplicate
-            system shade alerts.</p>
-        </div>
-        <div class="feature-card">
-          <div class="card-icon-box">🔔</div>
-          <h3>Notification De-duplication</h3>
-          <p>Eliminated side bracket visual stack artifacts and added stale notification reconciliation for active
-            system shade state syncing.</p>
-        </div>
-        <div class="feature-card">
-          <div class="card-icon-box">🛡️</div>
-          <h3>OEM Autostart & Status Badges</h3>
-          <p>Enhanced status badges and direct toggle handling for Xiaomi/MIUI, OPPO/Realme, Vivo, and Samsung OEM
-            autostart settings.</p>
+          <div class="card-icon-box">🔦</div>
+          <h3>Flashlight & Screen Recording</h3>
+          <p>Dedicated 1-tap torch toggle card and real-time screen recording elapsed timer overlay.</p>
         </div>
       </div>
     </section>
@@ -278,8 +272,7 @@
       <div class="section-head">
         <p class="eyebrow">Interface Showcase</p>
         <h2>Every state designed for instant clarity.</h2>
-        <p class="subtitle">Use navigation controls, swipe, or click any card to inspect unclipped high-res app
-          screenshots in 3D perspective view.</p>
+        <p class="subtitle">Use navigation controls, swipe, or click any card to inspect unclipped high-res app screenshots in 3D perspective view.</p>
 
         <!-- Category Filter Tabs -->
         <div class="filter-tabs">
@@ -300,149 +293,161 @@
         </button>
 
         <div class="coverflow-track" id="carousel-track">
-          <!-- Card 1: Wavy Music Player (Default First Screenshot) -->
+          <!-- Card 1: Wavy Music Player -->
           <div class="coverflow-card lightbox-trigger" data-index="0" data-category="overlay"
-            data-title="Wavy Music Player" data-tag="Media Control" data-tag-class=""
-            data-desc="Organic wave visualizer with drag-to-seek progress bar, track artwork, and playback controls."
-            data-img="assets/screenshots/SmartIslandMusic.jpg">
+            data-title="Expanded Music Player" data-tag="Media Control" data-tag-class=""
+            data-desc="Real-time waveform scrubber, ambient album artwork background glow, track metadata, and dynamic color theme."
+            data-img="assets/screenshots/11_expanded_music_card.jpg">
             <div class="phone-frame">
               <div class="phone-screen">
-                <img src="assets/screenshots/SmartIslandMusic.jpg" alt="Expanded Media Overlay with Wavy Seek Bar" />
+                <img src="assets/screenshots/11_expanded_music_card.jpg" alt="Expanded Media Overlay with Wavy Seek Bar" />
               </div>
             </div>
           </div>
 
-          <!-- Card 2: Maps & Navigation -->
+          <!-- Card 2: Live Activities & Navigation -->
           <div class="coverflow-card lightbox-trigger" data-index="1" data-category="overlay"
-            data-title="Turn Guidance Card" data-tag="Maps & Navigation" data-tag-class=""
-            data-desc="Maneuver step arrows, distance ETA, and custom turn colors for Google Maps."
-            data-img="assets/screenshots/SmartIslandNavigation.jpg">
+            data-title="Live Activities & Navigation" data-tag="Live Activity" data-tag-class=""
+            data-desc="Real-time delivery progress (Uber, Zomato, Swiggy) and turn-by-turn navigation arrows with brand colors."
+            data-img="assets/screenshots/06_live_activities_navigation.jpg">
             <div class="phone-frame">
               <div class="phone-screen">
-                <img src="assets/screenshots/SmartIslandNavigation.jpg" alt="Google Maps Turn Guidance Overlay" />
+                <img src="assets/screenshots/06_live_activities_navigation.jpg" alt="Live Activities and Turn Navigation" />
               </div>
             </div>
           </div>
 
-          <!-- Card 3: Home Dashboard -->
-          <div class="coverflow-card lightbox-trigger" data-index="2" data-category="system" data-title="Home Dashboard"
-            data-tag="Dashboard" data-tag-class="font-sys"
-            data-desc="Master toggle, active state monitor, notification listener status, and quick test triggers."
-            data-img="assets/screenshots/Home.jpg">
+          <!-- Card 3: Dynamic Simulation Lab -->
+          <div class="coverflow-card lightbox-trigger" data-index="2" data-category="system"
+            data-title="Studio Simulation Lab" data-tag="Dashboard" data-tag-class="font-sys"
+            data-desc="1-Tap test triggers for all 11 dynamic modes with split-island multi-state auxiliary indicators."
+            data-img="assets/screenshots/01_studio_simulation_lab.jpg">
             <div class="phone-frame">
               <div class="phone-screen">
-                <img src="assets/screenshots/Home.jpg" alt="Smart Island Home Screen Dashboard" />
+                <img src="assets/screenshots/01_studio_simulation_lab.jpg" alt="Dynamic Simulation Lab Dashboard" />
               </div>
             </div>
           </div>
 
-          <!-- Card 4: Theme Color Customization -->
+          <!-- Card 4: Feature Accent Colors -->
           <div class="coverflow-card lightbox-trigger" data-index="3" data-category="customization"
-            data-title="Full Color Customization" data-tag="Theming" data-tag-class="font-custom"
-            data-desc="Per-feature HSL color pickers for battery, music visualizer, navigation, hotspot, and calls."
-            data-img="assets/screenshots/Customizations.jpg">
+            data-title="Feature Accent Colors Studio" data-tag="Theming" data-tag-class="font-custom"
+            data-desc="Curated color palettes for battery charging, notification dots, music visualizers, and phone calls."
+            data-img="assets/screenshots/08_feature_accent_colors.jpg">
             <div class="phone-frame">
               <div class="phone-screen">
-                <img src="assets/screenshots/Customizations.jpg" alt="Theme Color Customization Screen" />
+                <img src="assets/screenshots/08_feature_accent_colors.jpg" alt="Feature Accent Colors Studio" />
               </div>
             </div>
           </div>
 
-          <!-- Card 5: Battery Charging -->
-          <div class="coverflow-card lightbox-trigger" data-index="4" data-category="overlay"
-            data-title="Battery Charging Card" data-tag="Battery State" data-tag-class=""
-            data-desc="Live charging percentage, pulsing bolt indicator, time-remaining estimate, and custom color."
-            data-img="assets/screenshots/SmartIslandBattery.jpg">
+          <!-- Card 5: Custom RGB Picker & Flashlight -->
+          <div class="coverflow-card lightbox-trigger" data-index="4" data-category="customization"
+            data-title="Custom RGB Color Picker" data-tag="Color Studio" data-tag-class="font-custom"
+            data-desc="Precision Red, Green, Blue sliders with live Hex preview and active flashlight toggle island card."
+            data-img="assets/screenshots/09_custom_rgb_picker_flashlight.jpg">
             <div class="phone-frame">
               <div class="phone-screen">
-                <img src="assets/screenshots/SmartIslandBattery.jpg" alt="Battery Charging Overlay and Color Picker" />
+                <img src="assets/screenshots/09_custom_rgb_picker_flashlight.jpg" alt="Custom RGB Color Picker and Flashlight Overlay" />
               </div>
             </div>
           </div>
 
-          <!-- Card 6: Position & Sizing -->
+          <!-- Card 6: Precision Sizing Controls -->
           <div class="coverflow-card lightbox-trigger" data-index="5" data-category="customization"
-            data-title="Position & Sizing Controls" data-tag="Layout" data-tag-class="font-custom"
-            data-desc="Fine-tune island width, height, X/Y status bar offset, and corner radius sliders."
-            data-img="assets/screenshots/Positions.jpg">
+            data-title="Precision Sizing & Drop Shadow" data-tag="Layout" data-tag-class="font-custom"
+            data-desc="Fine-tune island width, height, X/Y offsets, corner radius, and soft floating ambient drop shadows."
+            data-img="assets/screenshots/03_precision_sizing_controls.jpg">
             <div class="phone-frame">
               <div class="phone-screen">
-                <img src="assets/screenshots/Positions.jpg" alt="Position Sliders and Sizing Controls" />
+                <img src="assets/screenshots/03_precision_sizing_controls.jpg" alt="Precision Sizing and Drop Shadow Controls" />
               </div>
             </div>
           </div>
 
-          <!-- Card 7: Permissions & Shizuku -->
+          <!-- Card 7: Permissions & Shizuku Setup -->
           <div class="coverflow-card lightbox-trigger" data-index="6" data-category="system"
-            data-title="Permissions & Shizuku Setup" data-tag="Setup" data-tag-class="font-sys"
-            data-desc="Shizuku 1-tap automated permission manager for Accessibility, Notification Access, and Overlay."
-            data-img="assets/screenshots/Permissions.jpg">
+            data-title="Permissions & Setup Center" data-tag="Setup" data-tag-class="font-sys"
+            data-desc="1-Tap Shizuku automated permission grant for Accessibility, Notification Access, and Battery Whitelist."
+            data-img="assets/screenshots/15_permissions_setup_center.jpg">
             <div class="phone-frame">
               <div class="phone-screen">
-                <img src="assets/screenshots/Permissions.jpg" alt="Permissions setup screen with Shizuku setup" />
+                <img src="assets/screenshots/15_permissions_setup_center.jpg" alt="Permissions and Shizuku Setup Center" />
               </div>
             </div>
           </div>
 
-          <!-- Card 8: Download Progress -->
-          <!-- <div class="coverflow-card lightbox-trigger" data-index="7" data-category="overlay"
-            data-title="File Transfer Progress" data-tag="File Transfer" data-tag-class=""
-            data-desc="Real-time file download speed (MB/s), completion progress bar, and 3.5s auto-dismissal."
-            data-img="assets/screenshots/SmartIslandDownload.jpg">
+          <!-- Card 8: Notifications & Privacy Rules -->
+          <div class="coverflow-card lightbox-trigger" data-index="7" data-category="system"
+            data-title="Notifications & Privacy Rules" data-tag="Privacy" data-tag-class="font-sys"
+            data-desc="Lock screen privacy guards, auto-expand toggles, quick actions, and message sync filtering."
+            data-img="assets/screenshots/05_notifications_privacy_rules.jpg">
             <div class="phone-frame">
               <div class="phone-screen">
-                <img src="assets/screenshots/SmartIslandDownload.jpg" alt="File Transfer Download Progress Overlay" />
-              </div>
-            </div>
-          </div> -->
-
-          <!-- Card 9: Settings Hub -->
-          <div class="coverflow-card lightbox-trigger" data-index="8" data-category="system" data-title="Settings Hub"
-            data-tag="Settings" data-tag-class="font-sys"
-            data-desc="Clean organized toggles for behavior, notification shade suppression, lock screen, and autostart."
-            data-img="assets/screenshots/Settings.jpg">
-            <div class="phone-frame">
-              <div class="phone-screen">
-                <img src="assets/screenshots/Settings.jpg" alt="Settings Hub Layout" />
+                <img src="assets/screenshots/05_notifications_privacy_rules.jpg" alt="Notifications and Privacy Rules" />
               </div>
             </div>
           </div>
 
-          <!-- Card 10: App Shortcuts Grid -->
+          <!-- Card 9: Features Hub -->
+          <div class="coverflow-card lightbox-trigger" data-index="8" data-category="system"
+            data-title="Features & Studio Hub" data-tag="Settings" data-tag-class="font-sys"
+            data-desc="Minimal Material 3 Category Hub cards consolidating all preferences into an elegant interface."
+            data-img="assets/screenshots/04_features_hub.jpg">
+            <div class="phone-frame">
+              <div class="phone-screen">
+                <img src="assets/screenshots/04_features_hub.jpg" alt="Features and Settings Hub" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 10: App Shortcuts Launcher -->
           <div class="coverflow-card lightbox-trigger" data-index="9" data-category="customization"
             data-title="App Shortcuts Launcher" data-tag="Shortcuts" data-tag-class="font-custom"
-            data-desc="Configure up to 8 favorite apps for instant 1-tap launch directly from the empty island."
-            data-img="assets/screenshots/AppShortcuts.jpg">
+            data-desc="Quick-launch up to 8 pinned favorite apps or auto-fill with recent applications from empty island."
+            data-img="assets/screenshots/07_app_shortcuts_launcher.jpg">
             <div class="phone-frame">
               <div class="phone-screen">
-                <img src="assets/screenshots/AppShortcuts.jpg" alt="App Shortcuts Launcher Grid Selection" />
+                <img src="assets/screenshots/07_app_shortcuts_launcher.jpg" alt="App Shortcuts Launcher Grid" />
               </div>
             </div>
           </div>
 
-          <!-- Card 11: Interactive Gestures -->
+          <!-- Card 11: 5 Gestures Step-by-Step Guide -->
           <div class="coverflow-card lightbox-trigger" data-index="10" data-category="customization"
-            data-title="Interactive Gesture Guide" data-tag="Gestures" data-tag-class="font-custom"
-            data-desc="Interactive playground demonstrating tap, double tap, and horizontal swipe pagination."
-            data-img="assets/screenshots/Gestures.jpg">
+            data-title="5-Gesture Control Guide" data-tag="Gestures" data-tag-class="font-custom"
+            data-desc="Complete step-by-step instructions for Single Tap, Swipe Up, Hold+Swipe Up, Swipe Down, and Swipe Left/Right."
+            data-img="assets/screenshots/14_gesture_guide_5gestures.jpg">
             <div class="phone-frame">
               <div class="phone-screen">
-                <img src="assets/screenshots/Gestures.jpg" alt="Interactive Gesture Guide and Tutorial" />
+                <img src="assets/screenshots/14_gesture_guide_5gestures.jpg" alt="5 Gestures Step-by-Step Guide" />
               </div>
             </div>
           </div>
 
-          <!-- Card 12: Hotspot Tethering -->
-          <!-- <div class="coverflow-card lightbox-trigger" data-index="11" data-category="overlay"
-            data-title="Active Hotspot Indicator" data-tag="Live Activity" data-tag-class=""
-            data-desc="Monitors tethering status, connected device count, hotspot SSID, and quick disable action."
-            data-img="assets/screenshots/SmartIslandHotspot.jpg">
+          <!-- Card 12: Notch & Layout Presets -->
+          <div class="coverflow-card lightbox-trigger" data-index="11" data-category="customization"
+            data-title="Quick Notch Presets" data-tag="Presets" data-tag-class="font-custom"
+            data-desc="Instant 1-tap calibration for Center Hole, Wide Island, Left Corner, Right Corner, and Compact Pill."
+            data-img="assets/screenshots/02_notch_layout_presets.jpg">
             <div class="phone-frame">
               <div class="phone-screen">
-                <img src="assets/screenshots/SmartIslandHotspot.jpg" alt="Active Hotspot Overlay Indicator" />
+                <img src="assets/screenshots/02_notch_layout_presets.jpg" alt="Notch and Layout Presets" />
               </div>
             </div>
-          </div> -->
+          </div>
+
+          <!-- Card 13: Floating Home Screen Music Island -->
+          <div class="coverflow-card lightbox-trigger" data-index="12" data-category="overlay"
+            data-title="Home Screen Floating Island" data-tag="Overlay" data-tag-class=""
+            data-desc="Expanded music player floating seamlessly above device wallpaper with waveform seek bar and full controls."
+            data-img="assets/screenshots/16_homescreen_music_floating.jpg">
+            <div class="phone-frame">
+              <div class="phone-screen">
+                <img src="assets/screenshots/16_homescreen_music_floating.jpg" alt="Home Screen Floating Music Island" />
+              </div>
+            </div>
+          </div>
         </div>
 
         <button class="coverflow-btn next" id="carousel-next" aria-label="Next screenshot">
@@ -456,12 +461,58 @@
       <!-- Carousel Active Card Info Footer -->
       <div class="coverflow-caption-box">
         <span class="phone-tag" id="carousel-tag">Media Control</span>
-        <h3 id="carousel-title">Wavy Music Player</h3>
-        <p id="carousel-desc">Organic wave visualizer with drag-to-seek progress bar, track artwork, and playback
-          controls.</p>
+        <h3 id="carousel-title">Expanded Music Player</h3>
+        <p id="carousel-desc">Real-time waveform scrubber, ambient album artwork background glow, track metadata, and dynamic color theme.</p>
 
         <div class="carousel-dots" id="carousel-dots">
           <!-- Dynamic pagination dots rendered in JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 5-Gesture Engine Section -->
+    <section class="section container" id="gestures">
+      <div class="section-head">
+        <p class="eyebrow">Gesture Controls</p>
+        <h2>Intuitive 5-Gesture Engine.</h2>
+        <p class="subtitle">Control notifications, multitasking, and media seamlessly with natural touch gestures.</p>
+      </div>
+
+      <div class="whats-new-grid">
+        <div class="feature-card">
+          <div class="card-icon-box">👆</div>
+          <h3>1. Single Tap / Click</h3>
+          <p><strong>Expand & Collapse:</strong> Tap once on the collapsed pill to open rich details; tap anywhere on background to collapse back. Cutout area stays active when idle.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="card-icon-box">⬆️</div>
+          <h3>2. Quick Swipe Up</h3>
+          <p><strong>Dismiss Current:</strong> Touch the expanded card and flick upward by &ge; 48dp to instantly dismiss the active notification from the stack.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="card-icon-box">📳</div>
+          <h3>3. Hold + Swipe Up</h3>
+          <p><strong>Clear ALL Notifications:</strong> Press & hold for <strong>300ms</strong> until a haptic vibration pulse occurs, then swipe up to dismiss all notifications at once.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="card-icon-box">⬇️</div>
+          <h3>4. Swipe Down</h3>
+          <p><strong>Floating Window:</strong> Drag downward by &ge; 48dp on the expanded card to launch the app directly into a freeform floating window overlay.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="card-icon-box">↔️</div>
+          <h3>5. Swipe Left / Right</h3>
+          <p><strong>Switch Notification Stack:</strong> Swipe horizontally across expanded cards to navigate smoothly between multiple active notifications and media sessions.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="card-icon-box">🎯</div>
+          <h3>Idle Cutout Trigger</h3>
+          <p><strong>App Shortcuts:</strong> Tap the camera cutout region even when the island is idle-hidden to immediately trigger your 8 favorite quick-launch apps.</p>
         </div>
       </div>
     </section>
@@ -479,17 +530,31 @@
           <div class="matrix-icon-box">🪟</div>
           <div class="matrix-content">
             <h3>Floating System Overlay</h3>
-            <p>Draws a compact, custom overlay above other apps using native Android WindowManager APIs without blocking
-              touch inputs.</p>
+            <p>Draws a compact, custom overlay above other apps using native Android WindowManager APIs without blocking touch inputs.</p>
           </div>
         </div>
 
         <div class="matrix-item">
-          <div class="matrix-icon-box">🗺️</div>
+          <div class="matrix-icon-box">🔋</div>
           <div class="matrix-content">
-            <h3>Turn-by-Turn Navigation</h3>
-            <p>Real-time maneuver guidance with turn direction arrows, step distance, ETA metrics, and dedicated
-              navigation color picks.</p>
+            <h3>Battery & Power Saver</h3>
+            <p>Dynamic states: Charging (Green), Low Battery &le; 20% (Pulsing Red), and Battery Saver ON (Amber) with live percentage.</p>
+          </div>
+        </div>
+
+        <div class="matrix-item">
+          <div class="matrix-icon-box">✨</div>
+          <div class="matrix-content">
+            <h3>Full-Color App Icons</h3>
+            <p>Original high-res application launcher icons with LRU caching for WhatsApp, Snapchat, Gmail, Instagram, and system apps.</p>
+          </div>
+        </div>
+
+        <div class="matrix-item">
+          <div class="matrix-icon-box">🖐️</div>
+          <div class="matrix-content">
+            <h3>5-Gesture Control Engine</h3>
+            <p>Intuitive gesture controls: Single Tap, Quick Swipe Up, Hold + Swipe Up (300ms haptic), Swipe Down, and Swipe Left/Right.</p>
           </div>
         </div>
 
@@ -497,8 +562,15 @@
           <div class="matrix-icon-box">🎵</div>
           <div class="matrix-content">
             <h3>Wavy Music Visualizer</h3>
-            <p>Renders current playing media progress as an organic, animated wave with circular thumb drag-to-seek
-              playback support.</p>
+            <p>Renders media progress as an organic, animated wave with ambient album art glow, track metadata, and seek controls.</p>
+          </div>
+        </div>
+
+        <div class="matrix-item">
+          <div class="matrix-icon-box">🗺️</div>
+          <div class="matrix-content">
+            <h3>Turn-by-Turn Navigation</h3>
+            <p>Real-time maneuver guidance with turn direction arrows, step distance, ETA metrics, and dedicated navigation theme colors.</p>
           </div>
         </div>
 
@@ -506,8 +578,7 @@
           <div class="matrix-icon-box">📡</div>
           <div class="matrix-content">
             <h3>Wi-Fi Hotspot Monitor</h3>
-            <p>Monitors tethering status, shows active client count, SSID, data usage indicators, and quick 1-tap
-              disable action.</p>
+            <p>Monitors tethering status, shows active client count, SSID, data usage indicators, and quick 1-tap disable action.</p>
           </div>
         </div>
 
@@ -515,8 +586,7 @@
           <div class="matrix-icon-box">📦</div>
           <div class="matrix-content">
             <h3>Live Activity Tracking</h3>
-            <p>Delivery and ride-share tracking cards via <code>LiveActivityParser</code> with dynamic per-app brand
-              colors and real-time status.</p>
+            <p>Delivery and ride-share tracking cards (Uber, Swiggy, Zomato, Blinkit, Rapido, Ola) with dynamic brand colors.</p>
           </div>
         </div>
 
@@ -524,8 +594,7 @@
           <div class="matrix-icon-box">⚡</div>
           <div class="matrix-content">
             <h3>Shizuku 1-Tap Setup</h3>
-            <p>Grant Accessibility, Notification Access, System Overlay, Usage Access, and Battery Whitelist
-              automatically in one tap.</p>
+            <p>Grant Accessibility, Notification Access, System Overlay, Usage Access, and Battery Whitelist automatically in one tap.</p>
           </div>
         </div>
 
@@ -533,17 +602,15 @@
           <div class="matrix-icon-box">📥</div>
           <div class="matrix-content">
             <h3>File Transfer Speeds</h3>
-            <p>Real-time download and upload progress bars with transfer speeds (MB/s), file names, and 3.5s
-              auto-dismissal on completion.</p>
+            <p>Real-time download/upload progress bars with transfer speeds (MB/s), file names, and intelligent chat sync exclusion.</p>
           </div>
         </div>
 
         <div class="matrix-item">
           <div class="matrix-icon-box">🎨</div>
           <div class="matrix-content">
-            <h3>Full Theme Customization</h3>
-            <p>Per-feature HSL color pickers for Battery, Notification Dot, Music Visualizer, Hotspot, Calls, Transfers,
-              and Navigation.</p>
+            <h3>Custom RGB Color Studio</h3>
+            <p>Fine-grained Red, Green, Blue slider color picker with live Hex preview for all 11 dynamic island modes.</p>
           </div>
         </div>
 
@@ -551,8 +618,7 @@
           <div class="matrix-icon-box">📱</div>
           <div class="matrix-content">
             <h3>Landscape Auto-Hide</h3>
-            <p>Automatically detects device orientation to temporarily hide overlay during full-screen games and video
-              streaming.</p>
+            <p>Automatically detects device orientation to temporarily hide overlay during full-screen games and video streaming.</p>
           </div>
         </div>
 
@@ -560,8 +626,7 @@
           <div class="matrix-icon-box">🔔</div>
           <div class="matrix-content">
             <h3>System Shade Suppression</h3>
-            <p>Converts active notifications into glanceable cards while suppressing duplicate system shade alerts
-              safely.</p>
+            <p>Converts active notifications into glanceable cards while suppressing duplicate system shade alerts safely.</p>
           </div>
         </div>
 
@@ -577,8 +642,7 @@
           <div class="matrix-icon-box">🔒</div>
           <div class="matrix-content">
             <h3>Lock Screen Privacy</h3>
-            <p>Opt-in support for displaying island status on the lock screen with optional sensitive notification
-              content hiding.</p>
+            <p>Opt-in support for displaying island status on the lock screen with optional sensitive notification content hiding.</p>
           </div>
         </div>
       </div>
@@ -621,14 +685,12 @@
       <div class="section-head">
         <p class="eyebrow">Security & Permissions</p>
         <h2>Transparent on-device processing.</h2>
-        <p class="subtitle">Smart Island requires specific Android system permissions to draw overlays and process
-          notifications locally with zero data transmission.</p>
+        <p class="subtitle">Smart Island requires specific Android system permissions to draw overlays and process notifications locally with zero data transmission.</p>
       </div>
 
       <div class="privacy-band">
         <div class="privacy-copy">
-          <span class="badge highlight" style="margin-bottom: 1rem;"><span class="badge-dot"></span> 100% On-Device &
-            Private</span>
+          <span class="badge highlight" style="margin-bottom: 1rem;"><span class="badge-dot"></span> 100% On-Device & Private</span>
           <h2>Built without INTERNET permission.</h2>
           <p>
             Smart Island does not request the Android <code>INTERNET</code> permission in its manifest, contains zero
@@ -746,17 +808,17 @@
               stroke-linejoin="round" />
           </svg>
         </a>
-        <a class="doc-card" href="https://github.com/agupta07505/SmartIsland/blob/main/PRIVACY.md" target="_blank"
+        <a class="doc-card" href="https://github.com/agupta07505/SmartIsland/blob/main/ROADMAP.md" target="_blank"
           rel="noopener">
-          <span>Privacy Policy</span>
+          <span>Product Roadmap</span>
           <svg viewBox="0 0 24 24">
             <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"
               stroke-linejoin="round" />
           </svg>
         </a>
-        <a class="doc-card" href="https://github.com/agupta07505/SmartIsland/blob/main/TERMS.md" target="_blank"
+        <a class="doc-card" href="https://github.com/agupta07505/SmartIsland/blob/main/PRIVACY.md" target="_blank"
           rel="noopener">
-          <span>Terms of Service</span>
+          <span>Privacy Policy</span>
           <svg viewBox="0 0 24 24">
             <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"
               stroke-linejoin="round" />

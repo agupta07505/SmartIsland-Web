@@ -1,20 +1,27 @@
-# Smart Island Website
+# SmartIsland Web
 
-Static production website for the Smart Island Android app.
+Landing page and interactive web showcase for **Smart Island** (v5.0.0), the lightweight, open-source, privacy-first Android floating Dynamic Island application.
 
-## Files
+## Live Website & Assets
 
-- `index.html` - single-page marketing and documentation site.
-- `styles.css` - responsive layout, visual system, and mobile navigation styles.
-- `script.js` - mobile menu and active navigation state.
-- `assets/` - local logo and app screenshots copied from the Android repository.
+- **Repository**: [SmartIsland](https://github.com/agupta07505/SmartIsland)
+- **Current Version**: `v5.0.0`
+- **Tech Stack**: Vanilla HTML5, Modern CSS (Glassmorphism & Material 3 styling), Vanilla JavaScript
+- **Screenshots Showcase**: 16 high-resolution application screenshots located in `assets/screenshots/`
 
-## Preview
+## Running Locally
 
-Open `index.html` in a browser, or serve this folder with any static file host.
+Open `index.html` in any modern browser or run a lightweight local HTTP server:
 
-```powershell
-python -m http.server 4173
+```bash
+# Using Python
+python -m http.server 8080
+
+# Using Node http-server
+npx http-server ./ -p 8080
 ```
 
-Then visit `http://127.0.0.1:4173`.
+## License
+
+GNU General Public License v3.0  
+Copyright (C) 2026 Animesh Gupta.

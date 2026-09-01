@@ -5,13 +5,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
   <meta name="description"
-    content="Smart Island is a lightweight Android overlay that turns notifications, calls, navigation, and media playback into a floating glanceable island." />
+    content="Smart Island is a lightweight open-source Android overlay that turns notifications, calls, navigation, live activities, and media playback into an ultra-fluid, glanceable floating island." />
   <meta name="author" content="Animesh Gupta" />
   <meta name="keywords"
-    content="Smart Island, Android overlay, Dynamic Island, Android notifications, Jetpack Compose, open source, notification cards, custom notification, Shizuku, theme customization, navigation overlay, battery saver, 5 gestures" />
+    content="Smart Island, Android overlay, Dynamic Island, Android notifications, Jetpack Compose, open source, spring physics, notification cards, custom notification, Shizuku, theme customization, navigation overlay, battery saver, 5 gestures, inline reply, timer stopwatch" />
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#06080d" />
-  <title>Smart Island v5.0.0 | Dynamic Android Notification Overlay</title>
+  <title>Smart Island v6.0.0 | Dynamic Android Notification Overlay</title>
 
   <!-- Canonical Link -->
   <link rel="canonical" href="https://smartisland.vercel.app/" />
@@ -19,18 +19,18 @@
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://smartisland.vercel.app/" />
-  <meta property="og:title" content="Smart Island v5.0.0 | Dynamic Android Notification Overlay" />
+  <meta property="og:title" content="Smart Island v6.0.0 | Dynamic Android Notification Overlay" />
   <meta property="og:description"
-    content="A lightweight open-source Android app that transforms notifications, calls, navigation guidance, and media playback into a floating, glanceable island near the status bar." />
+    content="A lightweight open-source Android app that transforms notifications, calls, navigation guidance, and media playback into an ultra-fluid, glanceable island near the status bar." />
   <meta property="og:image" content="https://smartisland.vercel.app/assets/logo-mark.png" />
   <meta property="og:site_name" content="Smart Island" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:url" content="https://smartisland.vercel.app/" />
-  <meta name="twitter:title" content="Smart Island v5.0.0 | Dynamic Android Notification Overlay" />
+  <meta name="twitter:title" content="Smart Island v6.0.0 | Dynamic Android Notification Overlay" />
   <meta name="twitter:description"
-    content="A lightweight open-source Android app that transforms notifications, calls, navigation guidance, and media playback into a floating, glanceable island near the status bar." />
+    content="A lightweight open-source Android app that transforms notifications, calls, navigation guidance, and media playback into an ultra-fluid, glanceable island near the status bar." />
   <meta name="twitter:image" content="https://smartisland.vercel.app/assets/logo-mark.png" />
 
   <!-- Favicons & Preconnect -->
@@ -49,7 +49,7 @@
     "operatingSystem": "Android 8.0+",
     "applicationCategory": "UtilitiesApplication",
     "downloadUrl": "https://github.com/agupta07505/SmartIsland/releases/latest",
-    "description": "A lightweight Android app that transforms notifications, calls, navigation, and media playback into a floating, glanceable island near the status bar.",
+    "description": "A lightweight Android app that transforms notifications, calls, navigation, and media playback into an ultra-fluid, glanceable island near the status bar.",
     "author": {
       "@type": "Person",
       "name": "Animesh Gupta",
@@ -60,7 +60,7 @@
       "price": "0",
       "priceCurrency": "USD"
     },
-    "softwareVersion": "5.0.0",
+    "softwareVersion": "6.0.0",
     "license": "https://github.com/agupta07505/SmartIsland/blob/main/LICENSE",
     "codeRepository": "https://github.com/agupta07505/SmartIsland"
   }
@@ -74,7 +74,7 @@
       <a class="brand" href="#top" aria-label="Smart Island home">
         <img src="assets/logo-mark.png" alt="Smart Island Logo" />
         <span class="brand-name">Smart Island</span>
-        <span class="version-pill">v5.0.0</span>
+        <span class="version-pill">v6.0.0</span>
       </a>
 
       <button class="nav-toggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false"
@@ -99,7 +99,7 @@
               <polyline points="7 10 12 15 17 10" />
               <line x1="12" y1="15" x2="12" y2="3" />
             </svg>
-            <span>Download APK (v5.0.0)</span>
+            <span>Download APK (v6.0.0)</span>
           </a>
         </div>
       </nav>
@@ -132,7 +132,7 @@
         <div class="hero-copy">
           <div class="hero-badges">
             <span class="badge highlight">
-              <span class="badge-dot"></span> v5.0.0 Released
+              <span class="badge-dot"></span> v6.0.0 Released
             </span>
             <span class="badge" id="hero-downloads-badge">
               2.3K+ Downloads
@@ -142,7 +142,7 @@
           <h1>Smart Notifications. <br /><span class="gradient-text">Glanceable Island.</span></h1>
 
           <p class="hero-text">
-            A lightweight open-source Android overlay that transforms notifications, live activities, charging states, and media playback into a fluid, glanceable Dynamic Island.
+            A lightweight open-source Android overlay that transforms notifications, live activities, charging states, and media playback into an ultra-fluid, glanceable Dynamic Island.
           </p>
 
           <div class="hero-actions">
@@ -152,7 +152,7 @@
                 <polyline points="7 10 12 15 17 10" />
                 <line x1="12" y1="15" x2="12" y2="3" />
               </svg>
-              <span>Download APK (v5.0.0)</span>
+              <span>Download APK (v6.0.0)</span>
             </a>
             <a class="btn-hero secondary" href="https://github.com/agupta07505/SmartIsland" target="_blank"
               rel="noopener">
@@ -166,7 +166,7 @@
               <div class="stat-label">Total Downloads</div>
             </div>
             <div class="stat-item">
-              <div class="stat-number">v5.0.0</div>
+              <div class="stat-number">v6.0.0</div>
               <div class="stat-label">Latest Version</div>
             </div>
             <div class="stat-item">
@@ -184,8 +184,8 @@
           <div class="hero-phone-container">
             <div class="phone-frame hero-phone">
               <div class="phone-screen">
-                <img src="assets/screenshots/11_expanded_music_card.jpg"
-                  alt="Smart Island expanded media player notification card overlay" />
+                <img src="assets/screenshots/16_homescreen_music_floating.jpg"
+                  alt="Smart Island expanded media player floating over wallpaper" />
               </div>
             </div>
 
@@ -199,10 +199,10 @@
             </div>
 
             <div class="floating-pill pill-bottom">
-              <span class="pill-icon">🔋</span>
+              <span class="pill-icon">⚡</span>
               <div class="pill-text">
-                <strong>Battery Saver Mode</strong>
-                <span>Live Percentage Badge</span>
+                <strong>Spring Physics Engine</strong>
+                <span>520f Calibrated Easing</span>
               </div>
             </div>
           </div>
@@ -217,8 +217,10 @@
           <span class="tech-pill">Kotlin 2.0+</span>
           <span class="tech-pill">Jetpack Compose</span>
           <span class="tech-pill">Material Design 3</span>
+          <span class="tech-pill">Spring Physics Engine</span>
+          <span class="tech-pill">Inline Reply & Clock Modes</span>
+          <span class="tech-pill">Background Opacity Studio</span>
           <span class="tech-pill">5-Gesture Engine</span>
-          <span class="tech-pill">Full-Color App Icons</span>
           <span class="tech-pill">Shizuku 1-Tap Setup</span>
           <span class="tech-pill">Zero Internet Permission</span>
         </div>
@@ -229,40 +231,50 @@
     <section class="section container" id="whats-new">
       <div class="section-head">
         <p class="eyebrow">Release Highlights</p>
-        <h2>What's New in Version 5.0.0 ✨</h2>
-        <p class="subtitle">Power-efficient battery alerts, full-color launcher icons, 5-gesture engine, and flawless multitasking.</p>
+        <h2>What's New in Version 6.0.0 ✨</h2>
+        <p class="subtitle">Ultra-fluid spring physics, tap-anywhere app launching, auto-hide inactivity timer, background opacity studio, and instant inline replies.</p>
       </div>
 
       <div class="whats-new-grid">
         <div class="feature-card">
-          <div class="card-icon-box">🔋</div>
-          <h3>Low Battery & Battery Saver</h3>
-          <p>Dedicated visual states: Pulsing red alert glyph for low battery (&le; 20%), warm amber for Battery Saver ON, and electric green charging with live percentage.</p>
+          <div class="card-icon-box">🌊</div>
+          <h3>Ultra-Fluid Spring Physics Engine</h3>
+          <p>Unified calibrated spring curves (stiffness = 520f, dampingRatio = 0.72f) completely eliminate asymmetric height snaps. Snappy 190ms cubic-bezier cross-fades and cohesive entry morphing provide instant tactile feedback.</p>
         </div>
         <div class="feature-card">
-          <div class="card-icon-box">✨</div>
-          <h3>Full-Color App Launcher Icons</h3>
-          <p>Restored original, vibrant full-color application launcher icons (WhatsApp, Snapchat, Gmail, etc.) in both collapsed and expanded states.</p>
+          <div class="card-icon-box">👆</div>
+          <h3>Tap Anywhere to Open Target App</h3>
+          <p>Tapping anywhere on neutral areas of expanded cards (background, artwork, title, message body) launches that notification's application and smoothly collapses the island while preserving media playback.</p>
         </div>
         <div class="feature-card">
-          <div class="card-icon-box">🖐️</div>
-          <h3>5-Gesture Control Engine</h3>
-          <p>Complete gesture controls: Single Tap, Quick Swipe Up, Hold + Swipe Up (300ms haptic clear-all), Swipe Down (floating window), and Horizontal Swipe.</p>
+          <div class="card-icon-box">⏱️</div>
+          <h3>Auto-Hide Inactivity Timer & Tap-to-Reveal</h3>
+          <p>User-configurable idle timer (1s–60s) with 1-tap presets (3s, 5s, 10s, 15s, 30s). Collapsed pill shrinks to 0 size when inactive. First tap awakens the pill; second tap expands the full card.</p>
+        </div>
+        <div class="feature-card">
+          <div class="card-icon-box">🪟</div>
+          <h3>Island Background Opacity Studio</h3>
+          <p>Continuous opacity adjustment (20% to 100%) with 4 quick 1-tap presets: 100% Solid, 85% Dark, 70% Glass, and 50% Clear, complete with micro +/-5% fine-tuning controls.</p>
         </div>
         <div class="feature-card">
           <div class="card-icon-box">💬</div>
-          <h3>Message Sync Suppression</h3>
-          <p>Smart filtering detects chat sync polling notifications (Snapchat, WhatsApp) to prevent false download mode alerts.</p>
+          <h3>Inline-Reply & Soft-Keyboard Focus</h3>
+          <p>Reply directly to WhatsApp, Telegram, Signal, Slack, and SMS right inside the expanded island. Dynamic WindowManager flags switch overlay to input-ready focus without touch blocking.</p>
         </div>
         <div class="feature-card">
-          <div class="card-icon-box">🎨</div>
-          <h3>Custom RGB Color Studio</h3>
-          <p>Fine-grained Red, Green, Blue slider dialog with real-time Hex code previews for all 11 dynamic island modes.</p>
+          <div class="card-icon-box">⏳</div>
+          <h3>Timer & Stopwatch Dynamic Modes</h3>
+          <p>Deep clock parsing across Google, Samsung, Xiaomi, and OnePlus clock apps. Live circular progress, elapsed millisecond ticker, full lap history, and interactive pause/resume/reset actions.</p>
         </div>
         <div class="feature-card">
-          <div class="card-icon-box">🔦</div>
-          <h3>Flashlight & Screen Recording</h3>
-          <p>Dedicated 1-tap torch toggle card and real-time screen recording elapsed timer overlay.</p>
+          <div class="card-icon-box">📜</div>
+          <h3>Virtualized SQLite Notification History</h3>
+          <p>Ultra-fast LazyColumn history with in-memory LRU icon caching, live search filtering, app filter chips, and dedicated "Delete by App" modal to keep local storage lightweight.</p>
+        </div>
+        <div class="feature-card">
+          <div class="card-icon-box">📱</div>
+          <h3>Landscape Visibility & Global Parity</h3>
+          <p>New toggle keeps the island active, visible, and dynamically repositioned in landscape orientation. Full 100% localization parity across English, Chinese, Portuguese, and more.</p>
         </div>
       </div>
     </section>
@@ -293,14 +305,14 @@
         </button>
 
         <div class="coverflow-track" id="carousel-track">
-          <!-- Card 1: Wavy Music Player -->
+          <!-- Card 1: Floating Home Screen Music Island -->
           <div class="coverflow-card lightbox-trigger" data-index="0" data-category="overlay"
-            data-title="Expanded Music Player" data-tag="Media Control" data-tag-class=""
-            data-desc="Real-time waveform scrubber, ambient album artwork background glow, track metadata, and dynamic color theme."
-            data-img="assets/screenshots/11_expanded_music_card.jpg">
+            data-title="Floating Music Island" data-tag="Media Control" data-tag-class=""
+            data-desc="Expanded music player floating seamlessly above device wallpaper with dynamic waveform seek bar and full playback controls."
+            data-img="assets/screenshots/16_homescreen_music_floating.jpg">
             <div class="phone-frame">
               <div class="phone-screen">
-                <img src="assets/screenshots/11_expanded_music_card.jpg" alt="Expanded Media Overlay with Wavy Seek Bar" />
+                <img src="assets/screenshots/16_homescreen_music_floating.jpg" alt="Home Screen Floating Music Island" />
               </div>
             </div>
           </div>
@@ -308,7 +320,7 @@
           <!-- Card 2: Live Activities & Navigation -->
           <div class="coverflow-card lightbox-trigger" data-index="1" data-category="overlay"
             data-title="Live Activities & Navigation" data-tag="Live Activity" data-tag-class=""
-            data-desc="Real-time delivery progress (Uber, Zomato, Swiggy) and turn-by-turn navigation arrows with brand colors."
+            data-desc="Real-time delivery progress (Uber, Zomato, Swiggy) and turn-by-turn navigation arrows with dynamic brand colors."
             data-img="assets/screenshots/06_live_activities_navigation.jpg">
             <div class="phone-frame">
               <div class="phone-screen">
@@ -320,7 +332,7 @@
           <!-- Card 3: Dynamic Simulation Lab -->
           <div class="coverflow-card lightbox-trigger" data-index="2" data-category="system"
             data-title="Studio Simulation Lab" data-tag="Dashboard" data-tag-class="font-sys"
-            data-desc="1-Tap test triggers for all 11 dynamic modes with split-island multi-state auxiliary indicators."
+            data-desc="1-Tap test triggers for all dynamic modes with split-island multi-state auxiliary indicators."
             data-img="assets/screenshots/01_studio_simulation_lab.jpg">
             <div class="phone-frame">
               <div class="phone-screen">
@@ -437,14 +449,14 @@
             </div>
           </div>
 
-          <!-- Card 13: Floating Home Screen Music Island -->
-          <div class="coverflow-card lightbox-trigger" data-index="12" data-category="overlay"
-            data-title="Home Screen Floating Island" data-tag="Overlay" data-tag-class=""
-            data-desc="Expanded music player floating seamlessly above device wallpaper with waveform seek bar and full controls."
-            data-img="assets/screenshots/16_homescreen_music_floating.jpg">
+          <!-- Card 13: Support & Community Feedback -->
+          <div class="coverflow-card lightbox-trigger" data-index="12" data-category="system"
+            data-title="Support & Community Feedback" data-tag="Community" data-tag-class="font-sys"
+            data-desc="Direct community links, GitHub star tracking, issue reporting, feature requests, and open-source license info."
+            data-img="assets/screenshots/13_support_feedback.jpg">
             <div class="phone-frame">
               <div class="phone-screen">
-                <img src="assets/screenshots/16_homescreen_music_floating.jpg" alt="Home Screen Floating Music Island" />
+                <img src="assets/screenshots/13_support_feedback.jpg" alt="Support and Community Feedback" />
               </div>
             </div>
           </div>
@@ -461,8 +473,8 @@
       <!-- Carousel Active Card Info Footer -->
       <div class="coverflow-caption-box">
         <span class="phone-tag" id="carousel-tag">Media Control</span>
-        <h3 id="carousel-title">Expanded Music Player</h3>
-        <p id="carousel-desc">Real-time waveform scrubber, ambient album artwork background glow, track metadata, and dynamic color theme.</p>
+        <h3 id="carousel-title">Floating Music Island</h3>
+        <p id="carousel-desc">Expanded music player floating seamlessly above device wallpaper with dynamic waveform seek bar and full playback controls.</p>
 
         <div class="carousel-dots" id="carousel-dots">
           <!-- Dynamic pagination dots rendered in JS -->
@@ -482,7 +494,7 @@
         <div class="feature-card">
           <div class="card-icon-box">👆</div>
           <h3>1. Single Tap / Click</h3>
-          <p><strong>Expand & Collapse:</strong> Tap once on the collapsed pill to open rich details; tap anywhere on background to collapse back. Cutout area stays active when idle.</p>
+          <p><strong>Expand & Collapse:</strong> Tap once on the collapsed pill to open rich details; tap anywhere on neutral background to collapse back. Cutout area stays active when idle.</p>
         </div>
 
         <div class="feature-card">
@@ -527,10 +539,34 @@
 
       <div class="features-matrix">
         <div class="matrix-item">
+          <div class="matrix-icon-box">🌊</div>
+          <div class="matrix-content">
+            <h3>Spring Physics Engine</h3>
+            <p>Unified calibrated spring curves (stiffness = 520f) and snappy 190ms cross-fades eliminate height jumping completely.</p>
+          </div>
+        </div>
+
+        <div class="matrix-item">
           <div class="matrix-icon-box">🪟</div>
           <div class="matrix-content">
-            <h3>Floating System Overlay</h3>
-            <p>Draws a compact, custom overlay above other apps using native Android WindowManager APIs without blocking touch inputs.</p>
+            <h3>Background Opacity Studio</h3>
+            <p>Continuous opacity control from 20% to 100% with 4 quick presets: Solid, Dark, Glass, and Clear for custom translucency.</p>
+          </div>
+        </div>
+
+        <div class="matrix-item">
+          <div class="matrix-icon-box">💬</div>
+          <div class="matrix-content">
+            <h3>Inline-Reply Messaging</h3>
+            <p>Direct reply input with intelligent soft-keyboard focus management for WhatsApp, Telegram, Signal, SMS, and Slack.</p>
+          </div>
+        </div>
+
+        <div class="matrix-item">
+          <div class="matrix-icon-box">⏳</div>
+          <div class="matrix-content">
+            <h3>Timer & Stopwatch Modes</h3>
+            <p>Deep clock parsing for Google, Samsung, and Xiaomi clocks with live countdown, elapsed ticker, laps, and reset controls.</p>
           </div>
         </div>
 
@@ -539,6 +575,14 @@
           <div class="matrix-content">
             <h3>Battery & Power Saver</h3>
             <p>Dynamic states: Charging (Green), Low Battery &le; 20% (Pulsing Red), and Battery Saver ON (Amber) with live percentage.</p>
+          </div>
+        </div>
+
+        <div class="matrix-item">
+          <div class="matrix-icon-box">📜</div>
+          <div class="matrix-content">
+            <h3>SQLite Notification History</h3>
+            <p>High-performance virtualized history list with in-memory LRU caching, live text search, and per-app batch deletion.</p>
           </div>
         </div>
 
@@ -610,15 +654,15 @@
           <div class="matrix-icon-box">🎨</div>
           <div class="matrix-content">
             <h3>Custom RGB Color Studio</h3>
-            <p>Fine-grained Red, Green, Blue slider color picker with live Hex preview for all 11 dynamic island modes.</p>
+            <p>Fine-grained Red, Green, Blue slider color picker with live Hex preview for all dynamic island modes.</p>
           </div>
         </div>
 
         <div class="matrix-item">
-          <div class="matrix-icon-box">📱</div>
+          <div class="matrix-icon-box">⏱️</div>
           <div class="matrix-content">
-            <h3>Landscape Auto-Hide</h3>
-            <p>Automatically detects device orientation to temporarily hide overlay during full-screen games and video streaming.</p>
+            <h3>Auto-Hide Inactivity Timer</h3>
+            <p>Configurable idle timer (1s–60s) with tap-to-reveal awaken gesture and optional landscape mode visibility toggle.</p>
           </div>
         </div>
 
@@ -637,14 +681,6 @@
             <p>Configure up to eight favorite apps for instant 1-tap launch directly from the empty expanded island.</p>
           </div>
         </div>
-
-        <div class="matrix-item">
-          <div class="matrix-icon-box">🔒</div>
-          <div class="matrix-content">
-            <h3>Lock Screen Privacy</h3>
-            <p>Opt-in support for displaying island status on the lock screen with optional sensitive notification content hiding.</p>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -660,7 +696,7 @@
         <div class="step-card">
           <div class="step-number">01</div>
           <h3>Download APK</h3>
-          <p>Download the latest signed v5.0.0 release package directly from GitHub Releases.</p>
+          <p>Download the latest signed v6.0.0 release package directly from GitHub Releases.</p>
         </div>
         <div class="step-card">
           <div class="step-number">02</div>
@@ -703,7 +739,7 @@
               <li>App name, package ID, title & notification text</li>
               <li>Album artwork, track playback state & seek progress</li>
               <li>Incoming call categories & active hotspot device counts</li>
-              <li>DataStore Preferences for user customization options</li>
+              <li>DataStore Preferences & local SQLite notification history</li>
             </ul>
           </div>
         </div>
@@ -760,7 +796,7 @@
               <span class="perm-tag">Auto-Hide</span>
             </div>
             <h4>Usage Access</h4>
-            <p>Detects full-screen landscape apps to auto-hide the island during gaming and video playback.</p>
+            <p>Detects full-screen landscape apps to auto-hide or reposition the island during gaming and video playback.</p>
           </div>
 
           <div class="permission-card">

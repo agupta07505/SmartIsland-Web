@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initCoverflowCarousel();
   initLightbox();
   fetchGitHubDownloads();
+  initSimulator();
 });
 
 /* ==========================================================================
@@ -17,7 +18,7 @@ async function fetchGitHubDownloads() {
   const downloadEl = document.getElementById("stat-downloads-count");
   const badgeEl = document.getElementById("hero-downloads-badge");
 
-  const FALLBACK_COUNT = 2350;
+  const FALLBACK_COUNT = 15648;
 
   try {
     const response = await fetch("https://api.github.com/repos/agupta07505/SmartIsland/releases");
@@ -59,7 +60,7 @@ async function fetchGitHubDownloads() {
       animateCounter(downloadEl, 0, FALLBACK_COUNT, 1600);
     }
     if (badgeEl) {
-      badgeEl.textContent = "2.3K+ Downloads";
+      badgeEl.textContent = "15.6K+ Downloads";
     }
   }
 }
@@ -401,3 +402,259 @@ function initLightbox() {
     }
   });
 }
+
+/* ==========================================================================
+   6. Interactive Island Simulator (v7.0.0 Dual-Tier In-Pill & Expanded)
+   ========================================================================== */
+function initSimulator() {
+  const island = document.getElementById("sim-island");
+  const pills = document.querySelectorAll(".sim-pill");
+  if (!island) return;
+
+  const modes = {
+    music: {
+      collapsed: `
+        <div class="sim-collapsed-inner">
+          <div class="sim-left">
+            <div class="sim-icon-circle" style="color: #FF7043;">🎵</div>
+            <span>Blinding Lights</span>
+          </div>
+          <div class="sim-right">
+            <div class="sim-bars">
+              <span class="sim-bar"></span>
+              <span class="sim-bar"></span>
+              <span class="sim-bar"></span>
+              <span class="sim-bar"></span>
+            </div>
+          </div>
+        </div>
+      `,
+      expanded: `
+        <div class="sim-expanded-inner">
+          <div class="sim-card-header">
+            <div class="sim-art" style="color: #FF7043;">🎵</div>
+            <div class="sim-meta">
+              <div class="sim-title">Blinding Lights</div>
+              <div class="sim-subtitle">The Weeknd • After Hours</div>
+            </div>
+            <span class="tier-badge" style="margin:0; font-size: 0.7rem; padding: 2px 8px;">Spotify</span>
+          </div>
+          <div class="sim-progress-bar">
+            <div class="sim-progress-fill" style="width: 58%;"></div>
+          </div>
+          <div class="sim-controls">
+            <button class="sim-control-btn" title="Previous Track" aria-label="Previous">⏮</button>
+            <button class="sim-control-btn" style="font-size: 1.3rem; color: #FF7043;" title="Pause" aria-label="Pause">⏸</button>
+            <button class="sim-control-btn" title="Next Track" aria-label="Next">⏭</button>
+          </div>
+        </div>
+      `
+    },
+    nav: {
+      collapsed: `
+        <div class="sim-collapsed-inner">
+          <div class="sim-left">
+            <div class="sim-icon-circle" style="color: #4CAF50;">↗️</div>
+            <span>Turn Right 200m</span>
+          </div>
+          <div class="sim-right">
+            <span style="color: #4CAF50; font-size: 0.8rem; font-weight: 700;">12 min</span>
+          </div>
+        </div>
+      `,
+      expanded: `
+        <div class="sim-expanded-inner">
+          <div class="sim-card-header">
+            <div class="sim-art" style="color: #4CAF50;">🧭</div>
+            <div class="sim-meta">
+              <div class="sim-title">Turn Right on Grand Ave</div>
+              <div class="sim-subtitle">In 200 meters • Then keep left</div>
+            </div>
+            <span class="tier-badge font-sys" style="margin:0; font-size: 0.7rem; padding: 2px 8px;">Maps</span>
+          </div>
+          <div class="sim-progress-bar">
+            <div class="sim-progress-fill" style="width: 72%; background: linear-gradient(135deg, #2e7d32, #4caf50);"></div>
+          </div>
+          <div style="display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--text-muted); margin-top: 2px;">
+            <span>ETA: <strong>5:42 PM</strong></span>
+            <span>Distance: <strong>4.2 km</strong></span>
+          </div>
+        </div>
+      `
+    },
+    timer: {
+      collapsed: `
+        <div class="sim-collapsed-inner">
+          <div class="sim-left">
+            <div class="sim-icon-circle" style="color: #FF9800;">⏱️</div>
+            <span>Pasta Timer</span>
+          </div>
+          <div class="sim-right">
+            <span style="color: #FFB74D; font-variant-numeric: tabular-nums; font-weight: 700;">04:28</span>
+          </div>
+        </div>
+      `,
+      expanded: `
+        <div class="sim-expanded-inner">
+          <div class="sim-card-header">
+            <div class="sim-art" style="color: #FF9800;">⏳</div>
+            <div class="sim-meta">
+              <div class="sim-title">Pasta Boiling Timer</div>
+              <div class="sim-subtitle">Target: 8:00 • 3:32 elapsed</div>
+            </div>
+            <span style="font-family: monospace; font-size: 1.1rem; font-weight: 800; color: #FFB74D;">04:28.2</span>
+          </div>
+          <div class="sim-progress-bar">
+            <div class="sim-progress-fill" style="width: 55%; background: linear-gradient(135deg, #e65100, #ff9800);"></div>
+          </div>
+          <div class="sim-action-row">
+            <button class="sim-btn-accept" style="background: rgba(255,255,255,0.1); color: #fff;">+1 Min</button>
+            <button class="sim-btn-decline" style="background: #e65100; color: #fff;">Pause</button>
+          </div>
+        </div>
+      `
+    },
+    call: {
+      collapsed: `
+        <div class="sim-collapsed-inner">
+          <div class="sim-left">
+            <div class="sim-icon-circle" style="color: #4CAF50;">📞</div>
+            <span>Sarah Jenkins</span>
+          </div>
+          <div class="sim-right">
+            <span style="color: #81C784; font-size: 0.8rem; font-weight: 700;">Incoming</span>
+          </div>
+        </div>
+      `,
+      expanded: `
+        <div class="sim-expanded-inner">
+          <div class="sim-card-header">
+            <div class="sim-art" style="color: #81C784;">👤</div>
+            <div class="sim-meta">
+              <div class="sim-title">Sarah Jenkins</div>
+              <div class="sim-subtitle">Mobile +1 (555) 349-2091</div>
+            </div>
+            <span class="tier-badge" style="margin:0; font-size: 0.7rem; padding: 2px 8px; color: #81C784; border-color: rgba(129,199,132,0.3); background: rgba(129,199,132,0.1);">Call</span>
+          </div>
+          <div class="sim-action-row">
+            <button class="sim-btn-decline">Decline</button>
+            <button class="sim-btn-accept">Accept</button>
+          </div>
+        </div>
+      `
+    },
+    battery: {
+      collapsed: `
+        <div class="sim-collapsed-inner">
+          <div class="sim-left">
+            <div class="sim-icon-circle" style="color: #FFD54F;">⚡</div>
+            <span>Fast Charging</span>
+          </div>
+          <div class="sim-right">
+            <span style="color: #81C784; font-weight: 700;">85%</span>
+          </div>
+        </div>
+      `,
+      expanded: `
+        <div class="sim-expanded-inner">
+          <div class="sim-card-header">
+            <div class="sim-art" style="color: #FFD54F;">🔋</div>
+            <div class="sim-meta">
+              <div class="sim-title">Super Fast Charging 2.0</div>
+              <div class="sim-subtitle">Connected to 65W USB-PD Adapter</div>
+            </div>
+            <span style="font-size: 1.1rem; font-weight: 800; color: #81C784;">85%</span>
+          </div>
+          <div class="sim-progress-bar">
+            <div class="sim-progress-fill" style="width: 85%; background: linear-gradient(135deg, #388e3c, #81c784);"></div>
+          </div>
+          <div style="font-size: 0.78rem; color: var(--text-muted); text-align: center;">
+            Approximately <strong>22 minutes</strong> until full
+          </div>
+        </div>
+      `
+    },
+    reply: {
+      collapsed: `
+        <div class="sim-collapsed-inner">
+          <div class="sim-left">
+            <div class="sim-icon-circle" style="color: #25D366;">💬</div>
+            <span>Alex: On my way!</span>
+          </div>
+          <div class="sim-right">
+            <span style="color: #25D366; font-size: 0.78rem; font-weight: 700;">Reply ↵</span>
+          </div>
+        </div>
+      `,
+      expanded: `
+        <div class="sim-expanded-inner">
+          <div class="sim-card-header">
+            <div class="sim-art" style="color: #25D366;">💬</div>
+            <div class="sim-meta">
+              <div class="sim-title">Alex Rivera (WhatsApp)</div>
+              <div class="sim-subtitle">Hey, are we still meeting at 5pm?</div>
+            </div>
+            <span class="tier-badge" style="margin:0; font-size: 0.7rem; padding: 2px 8px; color: #25D366; border-color: rgba(37,211,102,0.3); background: rgba(37,211,102,0.1);">WhatsApp</span>
+          </div>
+          <div class="sim-input-row">
+            <input type="text" placeholder="Type inline reply..." value="Yes, see you there!" />
+            <button title="Send Reply">➤</button>
+          </div>
+        </div>
+      `
+    }
+  };
+
+  let currentMode = "music";
+
+  function renderMode(modeKey) {
+    if (!modes[modeKey]) return;
+    currentMode = modeKey;
+    island.innerHTML = modes[modeKey].collapsed + modes[modeKey].expanded;
+
+    pills.forEach((p) => {
+      p.classList.toggle("active", p.getAttribute("data-mode") === modeKey);
+    });
+  }
+
+  // Mode button click
+  pills.forEach((pill) => {
+    pill.addEventListener("click", () => {
+      const mode = pill.getAttribute("data-mode");
+      if (mode) renderMode(mode);
+    });
+  });
+
+  // Toggle island expansion on click
+  island.addEventListener("click", (e) => {
+    if (e.target.closest("button") || e.target.closest("input")) {
+      return;
+    }
+    island.classList.toggle("expanded");
+  });
+
+  // In-Pill Swipe Left/Right Gesture
+  let touchStartX = 0;
+  island.addEventListener("touchstart", (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  island.addEventListener("touchend", (e) => {
+    const swipeDistance = e.changedTouches[0].screenX - touchStartX;
+    if (Math.abs(swipeDistance) > 30) {
+      const modeKeys = Object.keys(modes);
+      const curIdx = modeKeys.indexOf(currentMode);
+      if (swipeDistance < 0) {
+        const nextIdx = (curIdx + 1) % modeKeys.length;
+        renderMode(modeKeys[nextIdx]);
+      } else {
+        const prevIdx = (curIdx - 1 + modeKeys.length) % modeKeys.length;
+        renderMode(modeKeys[prevIdx]);
+      }
+    }
+  }, { passive: true });
+
+  // Initial render
+  renderMode("music");
+}
+

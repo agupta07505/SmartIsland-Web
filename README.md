@@ -1,13 +1,14 @@
 # SmartIsland Web
 
-Landing page and interactive web showcase for **Smart Island** (v6.0.0), the lightweight, open-source, privacy-first Android floating Dynamic Island application.
+Landing page and interactive web showcase for **Smart Island** (v7.0.0), the lightweight, open-source, privacy-first Android floating Dynamic Island application.
 
 ## Live Website & Assets
 
 - **Repository**: [SmartIsland](https://github.com/agupta07505/SmartIsland)
-- **Current Version**: `v6.0.0`
-- **Tech Stack**: Vanilla HTML5, Modern CSS (Glassmorphism & Material 3 styling), Vanilla JavaScript
-- **Screenshots Showcase**: 13 high-resolution application screenshots located in `assets/screenshots/`
+- **Current Version**: `v7.0.0`
+- **Tech Stack**: Vanilla HTML5, Modern CSS (Glassmorphism & Material 3 styling in #D84315 Deep Burnt-Orange), Vanilla JavaScript
+- **Interactive Simulator**: Live in-browser dynamic Island simulator featuring Spotify, Navigation, Timer, Phone Call, Battery, and WhatsApp inline-reply modes with in-pill swipe gestures
+- **Screenshots Showcase**: 13 high-resolution application screenshots located in `assets/screenshots/` (v7.0)
 
 ## Running Locally
 

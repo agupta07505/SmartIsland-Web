@@ -84,7 +84,6 @@
       </button>
 
       <nav class="nav" data-nav>
-        <a href="#simulator">Simulator</a>
         <a href="#showcase">Showcase</a>
         <a href="#features">Features</a>
         <a href="#setup">Setup</a>
@@ -185,43 +184,11 @@
 
         <div class="hero-showcase">
           <div class="hero-phone-container">
-            <div class="phone-frame hero-phone">
-              <div class="phone-screen">
-                <img src="assets/screenshots/01_home_event_controls.jpg" alt="Smart Island interface showing home event controls" width="360" height="780" />
-              </div>
+            <div class="hero-phone">
+              <img src="assets/screenshots/01_home_event_controls.jpg" alt="Smart Island home screen with per-event controls" />
             </div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- Interactive Simulator Section -->
-    <section class="section container interactive-sim-section" id="simulator">
-      <div class="section-head">
-        <p class="eyebrow">Interactive Simulator</p>
-        <h2>Experience Smart Island in your browser.</h2>
-        <p class="subtitle">Click any event mode to preview live activity cards, or click the island to toggle between collapsed and expanded states.</p>
-
-        <!-- Mode Pills -->
-        <div class="sim-mode-pills">
-          <button class="sim-pill active" data-mode="music">🎵 Music</button>
-          <button class="sim-pill" data-mode="idle">⛅ Idle Weather & Clock</button>
-          <button class="sim-pill" data-mode="nav">🧭 Navigation</button>
-          <button class="sim-pill" data-mode="timer">⏱️ Timer</button>
-          <button class="sim-pill" data-mode="call">📞 Phone Call</button>
-          <button class="sim-pill" data-mode="battery">⚡ Fast Charging</button>
-          <button class="sim-pill" data-mode="reply">💬 Inline Reply</button>
-        </div>
-      </div>
-
-      <div class="sim-stage" id="sim-stage">
-        <div class="sim-notch-frame">
-          <div class="camera-cutout"></div>
-          <div class="sim-island" id="sim-island" title="Click to expand or collapse">
-            <!-- Dynamic content injected by script.js -->
-          </div>
-        </div>
-        <p class="sim-hint">💡 Tap the island to expand or collapse. Swipe left/right on the collapsed pill to switch activities.</p>
       </div>
     </section>
 
@@ -230,7 +197,17 @@
       <div class="section-head">
         <p class="eyebrow">App Showcase</p>
         <h2>Crafted for clarity and seamless Android integration.</h2>
-        <p class="subtitle">Native Material 3 design, custom notch geometry calibration, live cards, and gesture controls.</p>
+        <p class="subtitle">Click any screenshot to inspect in full resolution or use controls to browse features.</p>
+
+        <!-- Screenshot Selector Tabs -->
+        <div class="showcase-tabs">
+          <button class="showcase-tab active" data-index="0">01 Home Controls</button>
+          <button class="showcase-tab" data-index="1">02 Layout & Notch</button>
+          <button class="showcase-tab" data-index="2">03 Media & Widgets</button>
+          <button class="showcase-tab" data-index="3">04 Demo Lab</button>
+          <button class="showcase-tab" data-index="4">05 Settings Hub</button>
+          <button class="showcase-tab" data-index="5">06 Gesture Guide</button>
+        </div>
       </div>
 
       <div class="showcase-slider">

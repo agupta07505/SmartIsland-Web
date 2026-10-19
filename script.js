@@ -1,93 +1,17 @@
 /**
- * Smart Island Web - Dynamic Functionality, GitHub API & 3D Coverflow Carousel
+ * Smart Island Web - Minimal, Fast & Interactive Logic
  */
 
 document.addEventListener("DOMContentLoaded", () => {
   initMobileNav();
   initActiveNavObserver();
-  initCoverflowCarousel();
+  initShowcase();
   initLightbox();
-  fetchGitHubDownloads();
   initSimulator();
 });
 
 /* ==========================================================================
-   1. Dynamic GitHub Downloads Fetch & Counter Animation
-   ========================================================================== */
-async function fetchGitHubDownloads() {
-  const downloadEl = document.getElementById("stat-downloads-count");
-  const badgeEl = document.getElementById("hero-downloads-badge");
-
-  const FALLBACK_COUNT = 15648;
-
-  try {
-    const response = await fetch("https://api.github.com/repos/agupta07505/SmartIsland/releases");
-    
-    if (!response.ok) {
-      throw new Error(`GitHub API error status: ${response.status}`);
-    }
-
-    const releases = await response.json();
-    let totalDownloads = 0;
-
-    if (Array.isArray(releases)) {
-      releases.forEach((release) => {
-        if (release.assets && Array.isArray(release.assets)) {
-          release.assets.forEach((asset) => {
-            if (typeof asset.download_count === "number") {
-              totalDownloads += asset.download_count;
-            }
-          });
-        }
-      });
-    }
-
-    const countToDisplay = totalDownloads > 0 ? totalDownloads : FALLBACK_COUNT;
-
-    // Animate stat number counter
-    if (downloadEl) {
-      animateCounter(downloadEl, 0, countToDisplay, 1600);
-    }
-
-    // Update hero badge
-    if (badgeEl) {
-      const formattedK = (countToDisplay / 1000).toFixed(1) + "K+ Downloads";
-      badgeEl.textContent = formattedK;
-    }
-  } catch (error) {
-    console.warn("Could not fetch live GitHub download stats, using static fallback:", error);
-    if (downloadEl) {
-      animateCounter(downloadEl, 0, FALLBACK_COUNT, 1600);
-    }
-    if (badgeEl) {
-      badgeEl.textContent = "15.6K+ Downloads";
-    }
-  }
-}
-
-function animateCounter(element, start, end, duration) {
-  let startTime = null;
-
-  function step(timestamp) {
-    if (!startTime) startTime = timestamp;
-    const progress = Math.min((timestamp - startTime) / duration, 1);
-    const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
-    const currentCount = Math.floor(easeProgress * (end - start) + start);
-    
-    element.textContent = currentCount.toLocaleString() + "+";
-
-    if (progress < 1) {
-      window.requestAnimationFrame(step);
-    } else {
-      element.textContent = end.toLocaleString() + "+";
-    }
-  }
-
-  window.requestAnimationFrame(step);
-}
-
-/* ==========================================================================
-   2. Mobile Navigation Toggle & Body Scroll Lock
+   1. Mobile Navigation
    ========================================================================== */
 function initMobileNav() {
   const navToggle = document.querySelector("[data-nav-toggle]");
@@ -117,7 +41,7 @@ function initMobileNav() {
 }
 
 /* ==========================================================================
-   3. Active Section Scroll Observer
+   2. Active Section Scroll Observer
    ========================================================================== */
 function initActiveNavObserver() {
   const navLinks = [...document.querySelectorAll(".nav a")];
@@ -150,213 +74,108 @@ function initActiveNavObserver() {
 }
 
 /* ==========================================================================
-   4. 3D Coverflow Carousel Engine (Defaulting to Music Screenshot)
+   3. App Screenshots Showcase Slider
    ========================================================================== */
-function initCoverflowCarousel() {
-  const allCards = Array.from(document.querySelectorAll(".coverflow-card"));
-  const prevBtn = document.getElementById("carousel-prev");
-  const nextBtn = document.getElementById("carousel-next");
-  const dotsContainer = document.getElementById("carousel-dots");
-  const filterTabs = document.querySelectorAll(".filter-tab");
-  const stage = document.querySelector(".coverflow-stage");
+function initShowcase() {
+  const track = document.getElementById("showcase-track");
+  const cards = Array.from(document.querySelectorAll(".showcase-card"));
+  const prevBtn = document.getElementById("slider-prev");
+  const nextBtn = document.getElementById("slider-next");
+  const dotsContainer = document.getElementById("showcase-dots");
+  const titleEl = document.getElementById("showcase-title");
+  const descEl = document.getElementById("showcase-desc");
 
-  const captionTag = document.getElementById("carousel-tag");
-  const captionTitle = document.getElementById("carousel-title");
-  const captionDesc = document.getElementById("carousel-desc");
+  if (!track || !cards.length) return;
 
-  if (!allCards.length) return;
+  let currentIndex = 0;
 
-  let activeFilter = "all";
-  let visibleCards = [...allCards];
-  let activeIndex = 0; // Default active centered screenshot: Wavy Music Player
+  function updateSlider() {
+    track.style.transform = `translateX(-${currentIndex * 100}%)`;
 
-  function getVisibleCards() {
-    return allCards.filter((card) => {
-      const cat = card.getAttribute("data-category");
-      return activeFilter === "all" || cat === activeFilter;
-    });
-  }
-
-  function updateCoverflow() {
-    visibleCards = getVisibleCards();
-
-    if (!visibleCards.length) return;
-    if (activeIndex >= visibleCards.length) activeIndex = visibleCards.length - 1;
-    if (activeIndex < 0) activeIndex = 0;
-
-    // Apply 3D classes to all cards
-    allCards.forEach((card) => {
-      card.className = "coverflow-card lightbox-trigger hidden";
+    cards.forEach((card, idx) => {
+      card.classList.toggle("active", idx === currentIndex);
     });
 
-    const N = visibleCards.length;
-    const half = Math.floor(N / 2);
-
-    visibleCards.forEach((card, idx) => {
-      let diff = idx - activeIndex;
-      
-      // Wrap around logic for circular carousel
-      if (N > 4) {
-        if (diff > half) {
-          diff -= N;
-        } else if (diff < -half) {
-          diff += N;
-        }
-      }
-
-      card.classList.remove("hidden");
-
-      if (diff === 0) {
-        card.classList.add("active");
-      } else if (diff === -1) {
-        card.classList.add("prev-1");
-      } else if (diff === 1) {
-        card.classList.add("next-1");
-      } else if (diff === -2) {
-        card.classList.add("prev-2");
-      } else if (diff === 2) {
-        card.classList.add("next-2");
-      } else {
-        card.classList.add("hidden");
-      }
-    });
-
-    // Update Caption Box
-    const activeCard = visibleCards[activeIndex];
+    const activeCard = cards[currentIndex];
     if (activeCard) {
-      const tagText = activeCard.getAttribute("data-tag") || "";
-      const tagClass = activeCard.getAttribute("data-tag-class") || "";
-      const titleText = activeCard.getAttribute("data-title") || "";
-      const descText = activeCard.getAttribute("data-desc") || "";
-
-      if (captionTag) {
-        captionTag.textContent = tagText;
-        captionTag.className = `phone-tag ${tagClass}`.trim();
-      }
-      if (captionTitle) captionTitle.textContent = titleText;
-      if (captionDesc) captionDesc.textContent = descText;
+      if (titleEl) titleEl.textContent = activeCard.getAttribute("data-title") || "";
+      if (descEl) descEl.textContent = activeCard.getAttribute("data-desc") || "";
     }
 
-    // Render Pagination Dots
     if (dotsContainer) {
-      dotsContainer.innerHTML = "";
-      visibleCards.forEach((_, idx) => {
-        const dot = document.createElement("div");
-        dot.className = `carousel-dot ${idx === activeIndex ? "active" : ""}`;
-        dot.addEventListener("click", () => {
-          activeIndex = idx;
-          updateCoverflow();
-        });
-        dotsContainer.appendChild(dot);
+      const dots = dotsContainer.querySelectorAll(".showcase-dot");
+      dots.forEach((dot, idx) => {
+        dot.classList.toggle("active", idx === currentIndex);
       });
     }
   }
 
-  // Navigation handlers
+  // Render dots
+  if (dotsContainer) {
+    dotsContainer.innerHTML = "";
+    cards.forEach((_, idx) => {
+      const dot = document.createElement("div");
+      dot.className = `showcase-dot ${idx === 0 ? "active" : ""}`;
+      dot.setAttribute("role", "button");
+      dot.setAttribute("aria-label", `Slide ${idx + 1}`);
+      dot.addEventListener("click", () => {
+        currentIndex = idx;
+        updateSlider();
+      });
+      dotsContainer.appendChild(dot);
+    });
+  }
+
+  // Controls
   prevBtn?.addEventListener("click", () => {
-    activeIndex = activeIndex > 0 ? activeIndex - 1 : visibleCards.length - 1;
-    updateCoverflow();
+    currentIndex = currentIndex > 0 ? currentIndex - 1 : cards.length - 1;
+    updateSlider();
   });
 
   nextBtn?.addEventListener("click", () => {
-    activeIndex = activeIndex < visibleCards.length - 1 ? activeIndex + 1 : 0;
-    updateCoverflow();
+    currentIndex = currentIndex < cards.length - 1 ? currentIndex + 1 : 0;
+    updateSlider();
   });
 
-  // Card click handler
-  allCards.forEach((card) => {
-    card.addEventListener("click", (e) => {
-      const cardIndexInVisible = visibleCards.indexOf(card);
-      if (cardIndexInVisible !== -1 && cardIndexInVisible !== activeIndex) {
-        e.stopPropagation();
-        activeIndex = cardIndexInVisible;
-        updateCoverflow();
+  // Keyboard navigation when in view
+  document.addEventListener("keydown", (e) => {
+    const showcaseSection = document.getElementById("showcase");
+    if (!showcaseSection) return;
+    const rect = showcaseSection.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      if (e.key === "ArrowLeft") {
+        currentIndex = currentIndex > 0 ? currentIndex - 1 : cards.length - 1;
+        updateSlider();
+      } else if (e.key === "ArrowRight") {
+        currentIndex = currentIndex < cards.length - 1 ? currentIndex + 1 : 0;
+        updateSlider();
       }
-    });
+    }
   });
 
-  // Filter Tabs Handler
-  filterTabs.forEach((tab) => {
-    tab.addEventListener("click", () => {
-      filterTabs.forEach((t) => t.classList.remove("active"));
-      tab.classList.add("active");
-
-      activeFilter = tab.getAttribute("data-filter") || "all";
-      activeIndex = 0;
-      updateCoverflow();
-    });
-  });
-
-  // Touch Swipe Gesture Support
+  // Touch Swipe Support
   let touchStartX = 0;
-  let touchEndX = 0;
-
-  stage?.addEventListener("touchstart", (e) => {
+  track.addEventListener("touchstart", (e) => {
     touchStartX = e.changedTouches[0].screenX;
   }, { passive: true });
 
-  stage?.addEventListener("touchend", (e) => {
-    touchEndX = e.changedTouches[0].screenX;
-    const swipeDistance = touchEndX - touchStartX;
-
-    if (Math.abs(swipeDistance) > 40) {
-      if (swipeDistance < 0) {
-        activeIndex = activeIndex < visibleCards.length - 1 ? activeIndex + 1 : 0;
+  track.addEventListener("touchend", (e) => {
+    const diff = e.changedTouches[0].screenX - touchStartX;
+    if (Math.abs(diff) > 40) {
+      if (diff < 0) {
+        currentIndex = currentIndex < cards.length - 1 ? currentIndex + 1 : 0;
       } else {
-        activeIndex = activeIndex > 0 ? activeIndex - 1 : visibleCards.length - 1;
+        currentIndex = currentIndex > 0 ? currentIndex - 1 : cards.length - 1;
       }
-      updateCoverflow();
+      updateSlider();
     }
   }, { passive: true });
 
-  // Keyboard navigation
-  document.addEventListener("keydown", (e) => {
-    const screenshotsSection = document.getElementById("screenshots");
-    if (!screenshotsSection) return;
-
-    const rect = screenshotsSection.getBoundingClientRect();
-    const inView = rect.top < window.innerHeight && rect.bottom > 0;
-
-    if (inView) {
-      if (e.key === "ArrowLeft") {
-        activeIndex = activeIndex > 0 ? activeIndex - 1 : visibleCards.length - 1;
-        updateCoverflow();
-      } else if (e.key === "ArrowRight") {
-        activeIndex = activeIndex < visibleCards.length - 1 ? activeIndex + 1 : 0;
-        updateCoverflow();
-      }
-    }
-  });
-
-  // Auto-play loop
-  let autoplayInterval;
-
-  function startAutoplay() {
-    stopAutoplay();
-    autoplayInterval = setInterval(() => {
-      activeIndex = activeIndex < visibleCards.length - 1 ? activeIndex + 1 : 0;
-      updateCoverflow();
-    }, 3500);
-  }
-
-  function stopAutoplay() {
-    if (autoplayInterval) {
-      clearInterval(autoplayInterval);
-    }
-  }
-
-  stage?.addEventListener("mouseenter", stopAutoplay);
-  stage?.addEventListener("mouseleave", startAutoplay);
-  stage?.addEventListener("touchstart", stopAutoplay, { passive: true });
-  stage?.addEventListener("touchend", startAutoplay, { passive: true });
-
-  // Initial call
-  updateCoverflow();
-  startAutoplay();
+  updateSlider();
 }
 
 /* ==========================================================================
-   5. Lightbox Modal Preview
+   4. Lightbox Modal Preview
    ========================================================================== */
 function initLightbox() {
   const lightbox = document.getElementById("lightbox");
@@ -367,16 +186,15 @@ function initLightbox() {
   if (!lightbox) return;
 
   document.addEventListener("click", (e) => {
-    const trigger = e.target.closest(".lightbox-trigger.active");
-    if (trigger) {
-      const imgSrc = trigger.getAttribute("data-img") || trigger.querySelector("img")?.src;
-      const title = trigger.getAttribute("data-title") || "";
-      const subtitle = trigger.getAttribute("data-desc") || "";
-      const fullCaption = title ? `${title} — ${subtitle}` : "";
+    const card = e.target.closest(".showcase-card");
+    if (card) {
+      const imgSrc = card.getAttribute("data-img") || card.querySelector("img")?.src;
+      const title = card.getAttribute("data-title") || "";
+      const desc = card.getAttribute("data-desc") || "";
 
       if (lightboxImg && imgSrc) {
         lightboxImg.src = imgSrc;
-        if (lightboxCaption) lightboxCaption.textContent = fullCaption;
+        if (lightboxCaption) lightboxCaption.textContent = title ? `${title} — ${desc}` : "";
         lightbox.classList.add("active");
         lightbox.setAttribute("aria-hidden", "false");
       }
@@ -391,9 +209,7 @@ function initLightbox() {
   lightboxClose?.addEventListener("click", closeLightbox);
 
   lightbox.addEventListener("click", (e) => {
-    if (e.target === lightbox) {
-      closeLightbox();
-    }
+    if (e.target === lightbox) closeLightbox();
   });
 
   document.addEventListener("keydown", (e) => {
@@ -404,7 +220,7 @@ function initLightbox() {
 }
 
 /* ==========================================================================
-   6. Interactive Island Simulator (v7.0.0 Dual-Tier In-Pill & Expanded)
+   5. Interactive Island Simulator
    ========================================================================== */
 function initSimulator() {
   const island = document.getElementById("sim-island");
@@ -416,7 +232,7 @@ function initSimulator() {
       collapsed: `
         <div class="sim-collapsed-inner">
           <div class="sim-left">
-            <div class="sim-icon-circle" style="color: #FF7043;">🎵</div>
+            <span class="sim-icon-circle" style="color: #FF7043;">🎵</span>
             <span>Blinding Lights</span>
           </div>
           <div class="sim-right">
@@ -435,17 +251,56 @@ function initSimulator() {
             <div class="sim-art" style="color: #FF7043;">🎵</div>
             <div class="sim-meta">
               <div class="sim-title">Blinding Lights</div>
-              <div class="sim-subtitle">The Weeknd • After Hours</div>
+              <div class="sim-subtitle">The Weeknd &bull; After Hours</div>
             </div>
-            <span class="tier-badge" style="margin:0; font-size: 0.7rem; padding: 2px 8px;">Spotify</span>
+            <span style="font-size: 0.7rem; padding: 2px 8px; border-radius: 9999px; background: rgba(255,255,255,0.08); color: #fff;">Spotify</span>
           </div>
           <div class="sim-progress-bar">
             <div class="sim-progress-fill" style="width: 58%;"></div>
           </div>
           <div class="sim-controls">
             <button class="sim-control-btn" title="Previous Track" aria-label="Previous">⏮</button>
-            <button class="sim-control-btn" style="font-size: 1.3rem; color: #FF7043;" title="Pause" aria-label="Pause">⏸</button>
+            <button class="sim-control-btn" style="font-size: 1.25rem; color: #FF7043;" title="Pause" aria-label="Pause">⏸</button>
             <button class="sim-control-btn" title="Next Track" aria-label="Next">⏭</button>
+          </div>
+        </div>
+      `
+    },
+    idle: {
+      collapsed: `
+        <div class="sim-collapsed-inner">
+          <div class="sim-left">
+            <span class="sim-icon-circle" style="color: #64B5F6;">⛅</span>
+            <span>24°C Sunny</span>
+          </div>
+          <div class="sim-right">
+            <span style="color: #e2e8f0; font-family: monospace; font-weight: 700;">10:42</span>
+          </div>
+        </div>
+      `,
+      expanded: `
+        <div class="sim-expanded-inner">
+          <div class="sim-card-header">
+            <div class="sim-art" style="color: #64B5F6;">⛅</div>
+            <div class="sim-meta">
+              <div class="sim-title">Sunny &bull; 24°C (H: 27° L: 18°)</div>
+              <div class="sim-subtitle">Next: Team Sync at 11:00 AM</div>
+            </div>
+            <span style="font-size: 0.7rem; padding: 2px 8px; border-radius: 9999px; background: rgba(100,181,246,0.15); color: #64B5F6;">Idle Widget</span>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 12px 0 4px 0; font-size: 0.75rem; text-align: center;">
+            <div style="background: rgba(255,255,255,0.05); padding: 6px; border-radius: 8px;">
+              <div style="color: var(--text-dim); font-size: 0.7rem;">Rain Chance</div>
+              <div style="font-weight: 700; color: #fff; margin-top: 2px;">10%</div>
+            </div>
+            <div style="background: rgba(255,255,255,0.05); padding: 6px; border-radius: 8px;">
+              <div style="color: var(--text-dim); font-size: 0.7rem;">Net Speed</div>
+              <div style="font-weight: 700; color: #81C784; margin-top: 2px;">1.4 MB/s</div>
+            </div>
+            <div style="background: rgba(255,255,255,0.05); padding: 6px; border-radius: 8px;">
+              <div style="color: var(--text-dim); font-size: 0.7rem;">Next Alarm</div>
+              <div style="font-weight: 700; color: #FFB74D; margin-top: 2px;">07:00 AM</div>
+            </div>
           </div>
         </div>
       `
@@ -454,11 +309,11 @@ function initSimulator() {
       collapsed: `
         <div class="sim-collapsed-inner">
           <div class="sim-left">
-            <div class="sim-icon-circle" style="color: #4CAF50;">↗️</div>
+            <span class="sim-icon-circle" style="color: #4CAF50;">↗️</span>
             <span>Turn Right 200m</span>
           </div>
           <div class="sim-right">
-            <span style="color: #4CAF50; font-size: 0.8rem; font-weight: 700;">12 min</span>
+            <span style="color: #4CAF50; font-weight: 700;">12 min</span>
           </div>
         </div>
       `,
@@ -468,12 +323,12 @@ function initSimulator() {
             <div class="sim-art" style="color: #4CAF50;">🧭</div>
             <div class="sim-meta">
               <div class="sim-title">Turn Right on Grand Ave</div>
-              <div class="sim-subtitle">In 200 meters • Then keep left</div>
+              <div class="sim-subtitle">In 200 meters &bull; Then keep left</div>
             </div>
-            <span class="tier-badge font-sys" style="margin:0; font-size: 0.7rem; padding: 2px 8px;">Maps</span>
+            <span style="font-size: 0.7rem; padding: 2px 8px; border-radius: 9999px; background: rgba(76,175,80,0.15); color: #81C784;">Maps</span>
           </div>
           <div class="sim-progress-bar">
-            <div class="sim-progress-fill" style="width: 72%; background: linear-gradient(135deg, #2e7d32, #4caf50);"></div>
+            <div class="sim-progress-fill" style="width: 72%; background: #4CAF50;"></div>
           </div>
           <div style="display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--text-muted); margin-top: 2px;">
             <span>ETA: <strong>5:42 PM</strong></span>
@@ -486,7 +341,7 @@ function initSimulator() {
       collapsed: `
         <div class="sim-collapsed-inner">
           <div class="sim-left">
-            <div class="sim-icon-circle" style="color: #FF9800;">⏱️</div>
+            <span class="sim-icon-circle" style="color: #FF9800;">⏱️</span>
             <span>Pasta Timer</span>
           </div>
           <div class="sim-right">
@@ -500,15 +355,15 @@ function initSimulator() {
             <div class="sim-art" style="color: #FF9800;">⏳</div>
             <div class="sim-meta">
               <div class="sim-title">Pasta Boiling Timer</div>
-              <div class="sim-subtitle">Target: 8:00 • 3:32 elapsed</div>
+              <div class="sim-subtitle">Target: 8:00 &bull; 3:32 elapsed</div>
             </div>
-            <span style="font-family: monospace; font-size: 1.1rem; font-weight: 800; color: #FFB74D;">04:28.2</span>
+            <span style="font-family: monospace; font-size: 1.05rem; font-weight: 800; color: #FFB74D;">04:28</span>
           </div>
           <div class="sim-progress-bar">
-            <div class="sim-progress-fill" style="width: 55%; background: linear-gradient(135deg, #e65100, #ff9800);"></div>
+            <div class="sim-progress-fill" style="width: 55%; background: #FF9800;"></div>
           </div>
           <div class="sim-action-row">
-            <button class="sim-btn-accept" style="background: rgba(255,255,255,0.1); color: #fff;">+1 Min</button>
+            <button class="sim-btn-accept" style="background: rgba(255,255,255,0.08); color: #fff;">+1 Min</button>
             <button class="sim-btn-decline" style="background: #e65100; color: #fff;">Pause</button>
           </div>
         </div>
@@ -518,11 +373,11 @@ function initSimulator() {
       collapsed: `
         <div class="sim-collapsed-inner">
           <div class="sim-left">
-            <div class="sim-icon-circle" style="color: #4CAF50;">📞</div>
+            <span class="sim-icon-circle" style="color: #4CAF50;">📞</span>
             <span>Sarah Jenkins</span>
           </div>
           <div class="sim-right">
-            <span style="color: #81C784; font-size: 0.8rem; font-weight: 700;">Incoming</span>
+            <span style="color: #81C784; font-weight: 700;">Incoming</span>
           </div>
         </div>
       `,
@@ -534,7 +389,7 @@ function initSimulator() {
               <div class="sim-title">Sarah Jenkins</div>
               <div class="sim-subtitle">Mobile +1 (555) 349-2091</div>
             </div>
-            <span class="tier-badge" style="margin:0; font-size: 0.7rem; padding: 2px 8px; color: #81C784; border-color: rgba(129,199,132,0.3); background: rgba(129,199,132,0.1);">Call</span>
+            <span style="font-size: 0.7rem; padding: 2px 8px; border-radius: 9999px; background: rgba(129,199,132,0.15); color: #81C784;">Call</span>
           </div>
           <div class="sim-action-row">
             <button class="sim-btn-decline">Decline</button>
@@ -547,7 +402,7 @@ function initSimulator() {
       collapsed: `
         <div class="sim-collapsed-inner">
           <div class="sim-left">
-            <div class="sim-icon-circle" style="color: #FFD54F;">⚡</div>
+            <span class="sim-icon-circle" style="color: #FFD54F;">⚡</span>
             <span>Fast Charging</span>
           </div>
           <div class="sim-right">
@@ -566,7 +421,7 @@ function initSimulator() {
             <span style="font-size: 1.1rem; font-weight: 800; color: #81C784;">85%</span>
           </div>
           <div class="sim-progress-bar">
-            <div class="sim-progress-fill" style="width: 85%; background: linear-gradient(135deg, #388e3c, #81c784);"></div>
+            <div class="sim-progress-fill" style="width: 85%; background: #388e3c;"></div>
           </div>
           <div style="font-size: 0.78rem; color: var(--text-muted); text-align: center;">
             Approximately <strong>22 minutes</strong> until full
@@ -578,11 +433,11 @@ function initSimulator() {
       collapsed: `
         <div class="sim-collapsed-inner">
           <div class="sim-left">
-            <div class="sim-icon-circle" style="color: #25D366;">💬</div>
+            <span class="sim-icon-circle" style="color: #25D366;">💬</span>
             <span>Alex: On my way!</span>
           </div>
           <div class="sim-right">
-            <span style="color: #25D366; font-size: 0.78rem; font-weight: 700;">Reply ↵</span>
+            <span style="color: #25D366; font-weight: 700;">Reply ↵</span>
           </div>
         </div>
       `,
@@ -594,11 +449,11 @@ function initSimulator() {
               <div class="sim-title">Alex Rivera (WhatsApp)</div>
               <div class="sim-subtitle">Hey, are we still meeting at 5pm?</div>
             </div>
-            <span class="tier-badge" style="margin:0; font-size: 0.7rem; padding: 2px 8px; color: #25D366; border-color: rgba(37,211,102,0.3); background: rgba(37,211,102,0.1);">WhatsApp</span>
+            <span style="font-size: 0.7rem; padding: 2px 8px; border-radius: 9999px; background: rgba(37,211,102,0.15); color: #25D366;">WhatsApp</span>
           </div>
           <div class="sim-input-row">
             <input type="text" placeholder="Type inline reply..." value="Yes, see you there!" />
-            <button title="Send Reply">➤</button>
+            <button title="Send Reply">Send</button>
           </div>
         </div>
       `
@@ -617,7 +472,7 @@ function initSimulator() {
     });
   }
 
-  // Mode button click
+  // Pill click
   pills.forEach((pill) => {
     pill.addEventListener("click", () => {
       const mode = pill.getAttribute("data-mode");
@@ -625,11 +480,9 @@ function initSimulator() {
     });
   });
 
-  // Toggle island expansion on click
+  // Island click to expand/collapse
   island.addEventListener("click", (e) => {
-    if (e.target.closest("button") || e.target.closest("input")) {
-      return;
-    }
+    if (e.target.closest("button") || e.target.closest("input")) return;
     island.classList.toggle("expanded");
   });
 
@@ -657,4 +510,3 @@ function initSimulator() {
   // Initial render
   renderMode("music");
 }
-

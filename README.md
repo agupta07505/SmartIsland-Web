@@ -1,28 +1,32 @@
-# SmartIsland Web
+# SmartIsland website
 
-Landing page and showcase for **Smart Island** (v7.6.0), the lightweight, open-source, privacy-first Android floating Dynamic Island application.
+A lightweight, static landing page for the [SmartIsland Android app](https://github.com/agupta07505/SmartIsland).
 
-## Live Website & Assets
+## Run locally
 
-- **Repository**: [SmartIsland](https://github.com/agupta07505/SmartIsland)
-- **Current Version**: `v7.6.0`
-- **Tech Stack**: Vanilla HTML5, Modern CSS (Glassmorphism & Material 3 styling), Vanilla JavaScript
-- **Screenshots Showcase**: 6 high-resolution application screenshots located in `assets/screenshots/` (v7.6)
-- **Key Features**: Multilingual support across 5 languages, rotating idle widgets engine, face & fingerprint scan overlays, 30+ granular event switches, landscape mode overhaul, and dual-tier gestures.
+From this directory, start a static server:
 
-## Running Locally
-
-Open `index.html` in any modern browser or run a lightweight local HTTP server:
-
-```bash
-# Using Python
-python -m http.server 8080
-
-# Using Node http-server
-npx http-server ./ -p 8080
+```sh
+python3 -m http.server 4173
 ```
 
-## License
+Open `http://localhost:4173` in your browser. No build step or package installation is required. The site can also be deployed to a static host such as Vercel.
 
-GNU General Public License v3.0  
-Copyright (C) 2026 Animesh Gupta.
+## Project structure
+
+```text
+index.html              Page content and metadata
+assets/
+  css/styles.css        Responsive styling and animation
+  js/main.js            Navigation and island interactions
+  images/               App logo, wallpaper, and sample album artwork
+  fonts/                Lora fonts and their Open Font License
+```
+
+## Updating the APK
+
+Download links are deliberately pinned to the signed GitHub release APK for **v7.6.0** (Android version code **9**). When publishing a newer version, update the release URL and the visible version details in `index.html` together. Downloads go directly to the release asset rather than a GitHub page.
+
+## Asset notes
+
+The app logo and Lora font files come from the [SmartIsland repository](https://github.com/agupta07505/SmartIsland). Lora is distributed under the license in `assets/fonts/OFL.txt`. The sample music artwork is from [Last.fm](https://www.last.fm/music/Sunanda+Sharma/_/Mummy+Nu+Pasand+(From+%22Jai+Mummy+Di%22)); check usage rights before commercial publication. The wallpaper is AI-generated. SmartIsland itself is licensed under GNU GPLv3; see its repository for the applicable license and project information.
